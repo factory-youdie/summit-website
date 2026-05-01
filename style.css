@@ -1,0 +1,195 @@
+/* =========================================================
+   ROCK'N'ROLL SUMMIT — TEASER
+   BLACK × RED, グランジ、レンガ壁
+   ========================================================= */
+
+:root {
+  --bg:       #060606;
+  --red:      #c01818;
+  --red-deep: #7a0d0d;
+  --red-glow: #ff2b2b;
+  --white:    #f4ede0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--white);
+  font-family: "Anton", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+.svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ===== BRICK WALL ===== */
+.wall-brick {
+  position: relative;
+  background-color: #0a0908;
+  background-image:
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.92) 100%),
+    radial-gradient(circle at 15% 20%, rgba(40,40,40,.5), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(40,40,40,.45), transparent 40%),
+    linear-gradient(90deg,
+      transparent 0, transparent calc(50% - 1px),
+      rgba(0,0,0,.35) calc(50% - 1px), rgba(0,0,0,.35) 50%,
+      transparent 50%, transparent 100%),
+    repeating-linear-gradient(0deg,
+      #1a1612 0px, #1a1612 38px,
+      #0a0908 38px, #0a0908 42px),
+    repeating-linear-gradient(90deg,
+      #14110d 0px, #14110d 110px,
+      #0a0908 110px, #0a0908 114px);
+  background-size:
+    100% 100%, 100% 100%, 100% 100%,
+    220px 42px, 100% 42px, 228px 100%;
+}
+
+.wall-brick::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(90deg,
+    transparent 0px, transparent 110px,
+    rgba(0,0,0,.35) 110px, rgba(0,0,0,.35) 114px);
+  background-size: 228px 84px;
+  background-position: 114px 42px;
+  pointer-events: none;
+  opacity: .9;
+}
+
+.wall-brick::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='600' height='600' filter='url(%23n)'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='c'><feTurbulence baseFrequency='0.012' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='400' height='400' filter='url(%23c)'/></svg>");
+  mix-blend-mode: overlay;
+  opacity: .65;
+}
+
+/* ===== GRAIN ===== */
+.grain {
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence baseFrequency='1.6' numOctaves='2'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.10 0'/></filter><rect width='300' height='300' filter='url(%23g)'/></svg>");
+  opacity: .55;
+  mix-blend-mode: overlay;
+}
+
+/* ===== SPLATTER ===== */
+.splatter {
+  position: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,.5));
+}
+.splatter-tl {
+  top: -60px; left: -40px;
+  width: 420px; height: 420px;
+  background-image: url('img/splat_a.png');
+  opacity: .7;
+  transform: rotate(200deg) scale(.85);
+}
+.splatter-br {
+  bottom: -80px; right: -50px;
+  width: 480px; height: 480px;
+  background-image: url('img/splat_b.png');
+  opacity: .8;
+  transform: rotate(20deg);
+}
+
+/* ===== TEASER STAGE ===== */
+.teaser-stage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CENTER BLOCK ===== */
+.teaser-center {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+/* splat behind logo */
+.logo-splat {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 560px; height: 560px;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  background-image: url('img/splat_a.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .28;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== LOGO ===== */
+.logo-wrap {
+  position: relative;
+}
+.logo-img {
+  width: min(480px, 72vw);
+  height: auto;
+  filter:
+    drop-shadow(0 0 18px rgba(192, 24, 24, .55))
+    drop-shadow(0 2px 6px rgba(0,0,0,.9));
+  animation: logo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(192,24,24,.55)) drop-shadow(0 2px 6px rgba(0,0,0,.9)); }
+  50%       { filter: drop-shadow(0 0 32px rgba(255,43,43,.75)) drop-shadow(0 2px 6px rgba(0,0,0,.9)); }
+}
+
+/* ===== SUBTEXT ===== */
+.teaser-sub {
+  font-family: "Faster One", "Anton", sans-serif;
+  font-size: clamp(13px, 2vw, 18px);
+  letter-spacing: .35em;
+  color: var(--white);
+  opacity: .75;
+  filter: url(#distress);
+}
+
+/* ===== COMING SOON ===== */
+.teaser-coming {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(18px, 3.2vw, 42px);
+  letter-spacing: .5em;
+  color: var(--red-glow);
+  text-shadow:
+    0 0 8px  rgba(255,43,43,1),
+    0 0 24px rgba(255,43,43,.8),
+    0 0 60px rgba(192,24,24,.5);
+  text-transform: uppercase;
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1;  text-shadow: 0 0 8px rgba(255,43,43,1), 0 0 24px rgba(255,43,43,.8), 0 0 60px rgba(192,24,24,.5); }
+  50%       { opacity: .15; text-shadow: none; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .logo-splat { width: 320px; height: 320px; }
+  .splatter-tl { width: 260px; height: 260px; }
+  .splatter-br { width: 300px; height: 300px; }
+}
