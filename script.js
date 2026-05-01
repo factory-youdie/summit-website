@@ -31,7 +31,7 @@
 
   /* ---------- フェードイン（IntersectionObserver） ---------- */
   const fadeTargets = document.querySelectorAll(
-    '.section-header, .about-card, .news-item, .history-item, .flyer-card, .movie-card, .gallery-item, .interview-card, .big-link'
+    '.section-header, .about-card, .news-item, .history-item, .flyer-card, .movie-card, .gallery-item, .interview-card, .big-link, .archive-card'
   );
   fadeTargets.forEach(el => {
     el.style.opacity = '0';

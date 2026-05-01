@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ロッケンロー★サミット アーカイブ — 渋谷AX篇 2005〜2013">
+<title>アーカイブ 渋谷AX篇 2005–2013 | ロッケンローサミット</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Reggae+One&family=Stick&family=BIZ+UDPGothic:wght@700&family=Noto+Sans+JP:wght@700;900&family=Bungee&family=Bungee+Shade&family=Special+Elite&family=Rye&family=Nosifer&family=Faster+One&family=Anton&family=Rubik+Mono+One&family=Rubik+Glitch&family=Rampart+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== SVG FILTERS ===== -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="3" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+    <filter id="rougher" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="3" seed="6"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+    </filter>
+    <filter id="distress" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.1"/>
+      <feComposite in="SourceGraphic" in2="" operator="in" result="cut"/>
+      <feMerge><feMergeNode in="cut"/></feMerge>
+    </filter>
+    <filter id="distress-hard" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="3" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3"/>
+      <feComposite in="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="distress-warp" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.08" numOctaves="2" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="4" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.2"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+    <filter id="distress-brutal" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.09" numOctaves="3" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="6" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="4" seed="23"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.5 3.0"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="grain"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <a class="logo-mark" href="index.html">
+    <img src="img/rrs_logo.png" alt="ロッケンローサミット" class="logo-mini">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html#about">ABOUT</a>
+    <a href="index.html#news">NEWS</a>
+    <a href="index.html#media">MEDIA</a>
+    <a href="index.html#goods">SNS</a>
+    <a href="archive-west.html">HISTORY</a>
+    <a href="https://threechord.base.shop/" target="_blank" rel="noopener">SHOP</a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニュー">≡</button>
+</header>
+
+<!-- ===== ARCHIVE SECTION ===== -->
+<section class="section wall-brick" id="archive" style="padding-top:140px">
+  <div class="section-header">
+    <h2 class="section-title-en grunge">ARCHIVE</h2>
+    <span class="section-deco">渋谷AX篇 — Zepp Tokyo / 川崎CLUB CITTA&apos; / SHIBUYA-AX</span>
+  </div>
+
+  <!-- ERA NAV -->
+  <nav class="era-nav">
+    <a href="archive-odaiba.html" class="era-link">
+      お台場篇<span class="era-year">2000–2004</span>
+    </a>
+    <a href="archive-ax.html" class="era-link active">
+      渋谷AX篇<span class="era-year">2005–2013</span>
+    </a>
+    <a href="archive-east.html" class="era-link">
+      O-EAST篇<span class="era-year">2014–2019</span>
+    </a>
+    <a href="archive-west.html" class="era-link">
+      O-WEST篇<span class="era-year">2020–</span>
+    </a>
+  </nav>
+
+  <!-- ARCHIVE CARDS (新しい順) -->
+  <div class="archive-timeline">
+
+    <article class="archive-card">
+      <span class="mt mt-tl"></span><span class="mt mt-br"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2013.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2013-thumb.jpg" alt="Rock'n'Roll Summit 2013 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2013</div>
+        <h3 class="history-title">ロッケンロー★サミット2013 〜渋谷頂上決戦〜</h3>
+        <p class="history-meta">2013.9.23 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>ギターウルフ</li><li>ザ・マックショウ</li><li>THE NEATBEATS</li>
+          <li>RADIOTS</li><li>ザ50回転ズ</li><li>N&apos;夙川BOYS</li>
+          <li>THE BOHEMIANS</li><li>Droog</li><li>爆弾ジョニー</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tr"></span><span class="mt mt-bl"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2012.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2012-thumb.jpg" alt="Rock'n'Roll Summit 2012 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2012</div>
+        <h3 class="history-title">ロッケンロー★サミット2012 〜渋谷頂上決戦〜</h3>
+        <p class="history-meta">2012.9.8 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>ギターウルフ</li><li>ザ・マックショウ</li><li>THE NEATBEATS</li>
+          <li>Radios</li><li>ザ50回転ズ</li><li>THE CHERRY COKE$</li>
+          <li>キノコホテル</li><li>THE BOHEMIANS</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2011.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2011-thumb.jpg" alt="Rock'n'Roll Summit 2011 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2011</div>
+        <h3 class="history-title">ロッケンロー・サミット2011 〜渋谷死闘編〜</h3>
+        <p class="history-meta">2011.9.10 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>ギターウルフ</li><li>ザ・マックショウ</li>
+          <li>武藤昭平 with ウエノコウジ</li><li>SA</li><li>THE NEATBEATS</li>
+          <li>KING BROTHERS</li><li>Bloodest Saxophone</li>
+          <li>黒猫チェルシー</li><li>女王蜂</li><li>キノコホテル</li>
+          <li>撃鉄</li><li>ボヘミアンズ</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-bl"></span><span class="mt mt-br"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2010.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2010-thumb.jpg" alt="Rock'n'Roll Summit 2010 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2010</div>
+        <h3 class="history-title">ロッケンロー★サミット2010 〜渋谷死闘編〜</h3>
+        <p class="history-meta">2010.8.29 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>SHEENA &amp; THE ROKKETS</li><li>ギターウルフ</li><li>LAUGHIN&apos; NOSE</li>
+          <li>SA</li><li>THE NEATBEATS</li><li>KING BROTHERS</li>
+          <li>RADIOTS</li><li>ザ50回転ズ</li><li>OKANTOS</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tl"></span><span class="mt mt-br"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2009.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2009-thumb.jpg" alt="Rock'n'Roll Summit 2009 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2009</div>
+        <h3 class="history-title">ロッケンロー★サミット2009 〜渋谷頂上決戦！〜</h3>
+        <p class="history-meta">2009.9.22 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>ギターウルフ</li><li>LAUGHIN&apos; NOSE</li><li>怒髪天</li>
+          <li>THE NEATBEATS</li><li>毛皮のマリーズ</li><li>THE BAWDIES</li>
+          <li>ザ50回転ズ</li><li>THE BACILLUS BRAINS</li>
+          <li>KING BROTHERS</li><li>Bloodest Saxophone</li>
+          <li>LAZYgunsBRISKY</li><li>Veni Vidi Vicious</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tr"></span><span class="mt mt-bl"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2008.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2008-thumb.jpg" alt="Rock'n'Roll Summit 2008 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2008</div>
+        <h3 class="history-title">ロッケンロー★サミット2008 〜渋谷頂上決戦！〜</h3>
+        <p class="history-meta">2008.9.20 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>The 5,6,7,8&apos;s</li><li>THE MAD SPECIALS</li><li>THE NEATBEATS</li>
+          <li>KING BROTHERS</li><li>THE BACILLUS BRAINS（日本脳炎）</li>
+          <li>ROBIN</li><li>Bloodest Saxophone</li><li>ミドリ</li>
+          <li>ザ50回転ズ</li><li>THE BAWDIES</li><li>毛皮のマリーズ</li>
+          <li>JAPAN-狂撃-SPECIAL</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV.</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tl"></span><span class="mt mt-br"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2007.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2007-thumb.jpg" alt="Rock'n'Roll Summit 2007 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2007</div>
+        <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2007 〜渋谷頂上決戦！〜</h3>
+        <p class="history-meta">2007.8.26 ＠SHIBUYA-AX</p>
+        <ul class="lineup">
+          <li>ギターウルフ</li><li>シーナ＆ロケッツ</li><li>ラフィンノーズ</li>
+          <li>MAD3</li><li>THE NEATBEATS</li><li>8otto</li>
+          <li>JACKIE &amp; THE CEDRICS</li><li>Bloodest Saxophone</li>
+          <li>THE BAWDIES</li><li>ミドリ</li><li>TEGWON</li>
+          <li>ROMANES</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tr"></span><span class="mt mt-br"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2006.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2006-thumb.jpg" alt="Rock'n'Roll Summit 2006 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2006</div>
+        <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2006</h3>
+        <p class="history-meta">2006.8.29 ＠KAWASAKI CLUB CITTA&apos;</p>
+        <ul class="lineup">
+          <li>GUITAR WOLF</li><li>5,6,7,8&apos;s</li><li>MAD3</li>
+          <li>THE NEATBEATS</li><li>JACKIE &amp; THE CEDRICS</li>
+          <li>THE MACSHOW</li><li>ROBIN</li><li>Bloodest Saxophone</li>
+          <li>THE MINESOTA VOO DOO MEN</li><li>ザ50回転ズ</li>
+          <li>six</li><li>THE BAWDIES</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV</p>
+      </div>
+    </article>
+
+    <article class="archive-card">
+      <span class="mt mt-tl"></span><span class="mt mt-bl"></span>
+      <div class="ac-flyer">
+        <a href="img/flyers/flyer-2005.jpg" target="_blank" rel="noopener">
+          <img src="img/flyers/flyer-2005-thumb.jpg" alt="Rock'n'Roll Summit 2005 フライヤー" loading="lazy">
+        </a>
+      </div>
+      <div class="ac-info">
+        <div class="history-year">2005</div>
+        <h3 class="history-title">ロッケンロー★サミット2005 - We Love Billy ! Stay Free ! ! -</h3>
+        <p class="history-meta">2005.8.17 ＠Zepp Tokyo</p>
+        <ul class="lineup">
+          <li>GUITAR WOLF</li><li>THE 5.6.7.8&apos;s</li><li>MAD3</li>
+          <li>JACKIE &amp; THE CEDRICS</li><li>THE NEATBEATS</li>
+          <li>KING BROTHERS</li><li>惑星</li><li>Radio Caroline</li>
+          <li>ROBIN</li><li>THE THUNDER ROADS</li><li>JAIL GUITAR DOORS</li>
+        </ul>
+        <p class="dj">DJ DADDY-O-NOV.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="img/rrs_logo.png" alt="ROCK'N'ROLL SUMMIT" class="footer-logo-img">
+      <p class="footer-copy">&copy; 2026 ROCK&apos;N&apos;ROLL SUMMIT</p>
+    </div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/rocknroll_summit/?hl=ja" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="https://x.com/ROCKNROLLSUMMIT" target="_blank" rel="noopener">X</a>
+      <a href="https://www.tiktok.com/@rocknroll.summit" target="_blank" rel="noopener">TIKTOK</a>
+      <a href="https://www.youtube.com/@ROCKNROLLSUMMIT/videos" target="_blank" rel="noopener">YOUTUBE</a>
+      <a href="https://www.facebook.com/rocknrollsummit/?locale=ja_JP" target="_blank" rel="noopener">FACEBOOK</a>
+      <a href="https://threechord.base.shop/" target="_blank" rel="noopener">SHOP</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
