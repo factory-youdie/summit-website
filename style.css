@@ -609,9 +609,12 @@ ul{list-style:none}
 }
 
 /* ===== ABOUT ===== */
+.about-card-outer{
+  max-width:880px;margin:0 auto;
+  filter:drop-shadow(0 24px 50px rgba(0,0,0,.8)) drop-shadow(0 4px 12px rgba(0,0,0,.6));
+}
 .section-about .about-card{
   position:relative;
-  max-width:880px;margin:0 auto;
   background:
     radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.07), transparent 70%),
     radial-gradient(ellipse at 100% 100%, rgba(120,80,40,.15), transparent 60%),
@@ -623,11 +626,28 @@ ul{list-style:none}
   font-size:16px;line-height:2.0;
   font-weight:700;
   letter-spacing:.04em;
-  box-shadow:
-    0 24px 50px rgba(0,0,0,.7),
-    inset 0 0 0 1px rgba(0,0,0,.1),
-    inset 0 0 80px rgba(0,0,0,.18);
   transform:rotate(-.4deg);
+  text-align:center;
+  /* 破れた古い紙のギザギザエッジ */
+  clip-path: polygon(
+    0% 1.4%,  1.6% 0%,    3.8% 2.1%,  6.2% 0.3%,  8.5% 1.8%,  11% 0%,    13.4% 2.4%, 15.8% 0.6%, 18.2% 1.9%, 20.7% 0%,
+    23.1% 2.2%, 25.5% 0.4%, 28% 1.7%,  30.4% 0.1%, 32.8% 2.3%, 35.3% 0.5%, 37.7% 1.8%, 40.1% 0%,  42.6% 2.1%, 45% 0.3%,
+    47.4% 1.9%, 49.9% 0.1%, 52.3% 2.4%, 54.7% 0.6%, 57.2% 1.7%, 59.6% 0%,  62% 2.2%,  64.5% 0.4%, 66.9% 1.8%, 69.3% 0.2%,
+    71.8% 2.3%, 74.2% 0.5%, 76.6% 1.9%, 79.1% 0.1%, 81.5% 2.1%, 83.9% 0.3%, 86.4% 1.8%, 88.8% 0%,  91.2% 2.4%, 93.7% 0.6%,
+    96.1% 1.7%, 98.5% 0%,  100% 1.5%,
+    99% 4%,   100% 8%,   98.8% 12%,  100% 16%,  99% 20%,   100% 24%,  98.8% 28%,  100% 32%,
+    99% 36%,  100% 40%,  98.8% 44%,  100% 48%,  99% 52%,   100% 56%,  98.8% 60%,  100% 64%,
+    99% 68%,  100% 72%,  98.8% 76%,  100% 80%,  99% 84%,   100% 88%,  98.8% 92%,  100% 96%,
+    98.5% 100%, 96.2% 98.1%, 93.8% 100%, 91.3% 98.3%, 88.9% 100%, 86.4% 98.2%, 84% 100%,
+    81.6% 98.4%, 79.1% 100%, 76.7% 98.1%, 74.2% 100%, 71.8% 98.3%, 69.4% 100%, 66.9% 98.2%,
+    64.5% 100%, 62% 98.4%, 59.6% 100%, 57.1% 98.1%, 54.7% 100%, 52.3% 98.3%, 49.8% 100%,
+    47.4% 98.2%, 44.9% 100%, 42.5% 98.4%, 40.1% 100%, 37.6% 98.1%, 35.2% 100%, 32.8% 98.3%,
+    30.3% 100%, 27.9% 98.2%, 25.4% 100%, 23% 98.4%, 20.6% 100%, 18.1% 98.1%, 15.7% 100%,
+    13.2% 98.3%, 10.8% 100%, 8.4% 98.2%, 5.9% 100%, 3.5% 98.4%, 1.1% 100%, 0% 98.5%,
+    1.2% 95%,  0% 91%,   1.2% 87%,  0% 83%,   1.2% 79%,  0% 75%,   1.2% 71%,  0% 67%,
+    1.2% 63%,  0% 59%,   1.2% 55%,  0% 51%,   1.2% 47%,  0% 43%,   1.2% 39%,  0% 35%,
+    1.2% 31%,  0% 27%,   1.2% 23%,  0% 19%,   1.2% 15%,  0% 11%,   1.2% 7%,   0% 3%
+  );
 }
 .about-card::before{
   content:"";
@@ -638,11 +658,12 @@ ul{list-style:none}
   mix-blend-mode:multiply;
   pointer-events:none;
 }
-.about-card p{margin-bottom:1.4em;position:relative;z-index:2}
+.about-card p{margin-bottom:1.4em;position:relative;z-index:2;text-align:center;}
 .about-card .dedication{
   margin-top:24px;
   padding-top:24px;
   border-top:2px dashed rgba(0,0,0,.2);
+  text-align:center;
 }
 
 /* ===== NEW ===== */
@@ -1259,19 +1280,8 @@ ul{list-style:none}
   border:1px solid var(--tape-edge);
   z-index:2;
 }
-/* 年号ラベル */
-.wall-photo::after{
-  content:attr(data-year);
-  position:absolute;
-  bottom:-22px;left:50%;
-  transform:translateX(-50%);
-  font-family:"Bungee",sans-serif;
-  font-size:11px;
-  color:var(--bone);
-  letter-spacing:.12em;
-  white-space:nowrap;
-  text-shadow:0 1px 4px rgba(0,0,0,.9);
-}
+/* 年号ラベル非表示 */
+.wall-photo::after{content:none;}
 
 /* ----- Gallery Year Tabs ----- */
 .gallery-tabs{
