@@ -214,7 +214,12 @@
       tab.classList.add('active');
       const year = tab.dataset.year;
       const target = document.querySelector(`.gallery-grid[data-year="${year}"]`);
-      if (target) target.classList.add('active');
+      if (target) {
+        target.classList.add('active');
+        // ページを1にリセット
+        const firstBtn = target.nextElementSibling?.querySelector('.gpag-btn[data-p="1"]');
+        if (firstBtn) firstBtn.click();
+      }
     });
   });
 
@@ -334,6 +339,78 @@
       openLightbox(fullSrc, 'SHOP');
     });
   });
+
+  /* ---------- 血飛沫：各セクションの鉄板に追加 ---------- */
+  (function() {
+    const presets = [
+      ['a', 340,  4, 82, -18, 0.72],
+      ['b', 280, 58, -5,  14, 0.65],
+      ['a', 260, 74, 70, 162, 0.60],
+      ['b', 310,  2, 44,  58, 0.68],
+      ['a', 250, 80, 88, -72, 0.65],
+      ['b', 220,  6,  5, 198, 0.60],
+      ['a', 290, 62, 36,  82, 0.68],
+      ['b', 230, 10, 66,-122, 0.62],
+      ['a', 200, 76, 14,  40, 0.65],
+      ['b', 270,  8, 56, 242, 0.60],
+      ['a', 310, 66, 50,  -6, 0.68],
+      ['b', 190, 82, 74, 108, 0.62],
+    ];
+    document.querySelectorAll('.section.wall-brick').forEach((sec, si) => {
+      for (let j = 0; j < 2; j++) {
+        const [img, size, top, left, rot, op] = presets[(si * 2 + j) % presets.length];
+        const d = document.createElement('div');
+        Object.assign(d.style, {
+          position: 'absolute', top: top + '%', left: left + '%',
+          width: size + 'px', height: size + 'px',
+          backgroundImage: `url('img/splat_${img}.png')`,
+          backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
+          pointerEvents: 'none', zIndex: '1',
+          opacity: op, transform: `rotate(${rot}deg)`
+        });
+        sec.appendChild(d);
+      }
+    });
+  })();
+
+  /* ---------- ギャラリー：ページネーション（20枚/ページ） ---------- */
+  (function() {
+    const PER = 20;
+    document.querySelectorAll('.gallery-grid').forEach(grid => {
+      const cells = Array.from(grid.querySelectorAll('.gallery-cell'));
+      if (cells.length <= PER) return;
+      const total = Math.ceil(cells.length / PER);
+      let cur = 1;
+
+      const pager = document.createElement('div');
+      pager.className = 'gallery-pager';
+
+      function showPage(p) {
+        cur = p;
+        cells.forEach((c, i) => {
+          c.style.display = Math.floor(i / PER) + 1 === p ? '' : 'none';
+        });
+        pager.querySelectorAll('.gpag-btn').forEach(b => {
+          b.classList.toggle('active', +b.dataset.p === p);
+        });
+      }
+
+      for (let p = 1; p <= total; p++) {
+        const btn = document.createElement('button');
+        btn.className = 'gpag-btn';
+        btn.dataset.p = p;
+        btn.textContent = 'PAGE ' + p;
+        btn.addEventListener('click', () => {
+          showPage(p);
+          // ギャラリーセクション先頭にスクロール
+          grid.closest('.section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        pager.appendChild(btn);
+      }
+      grid.after(pager);
+      showPage(1);
+    });
+  })();
 
   /* ---------- 開発者向けロゴクリックでイースターエッグ ---------- */
   const star = document.querySelector('.logo-star');
