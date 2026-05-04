@@ -1352,18 +1352,6 @@ ul{list-style:none}
   .gallery-tab{font-size:11px;padding:5px 12px}
 }
 
-/* ===== GALLERY CELL WATERMARK ===== */
-.gallery-cell::after{
-  content:"";
-  position:absolute;
-  bottom:8px;right:8px;
-  width:52px;height:26px;
-  background:url('img/rrs_logo.png') no-repeat center/contain;
-  opacity:.60;
-  filter:brightness(100) saturate(0);
-  pointer-events:none;
-  z-index:3;
-}
 
 /* ===== SCATTERED WALL PHOTOS ===== */
 .wall-scatter{
