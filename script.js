@@ -137,20 +137,115 @@
     });
   });
 
-  /* ---------- GALLERY：写真クリックでライトボックス拡大 ---------- */
+  /* ---------- GALLERY：写真クリックでライトボックス拡大（← →ナビ付き） ---------- */
   document.querySelectorAll('.gallery-cell').forEach(cell => {
     cell.addEventListener('click', () => {
+      const activeGrid = document.querySelector('.gallery-grid.active');
+      if (!activeGrid) return;
+      const cells = Array.from(activeGrid.querySelectorAll('.gallery-cell'));
+      const idx = cells.indexOf(cell);
+      openGalleryLightbox(cells, idx);
+    });
+  });
+
+  function openGalleryLightbox(cells, startIdx) {
+    let idx = startIdx;
+
+    const lb = document.createElement('div');
+    lb.className = 'lb lb-gallery';
+    Object.assign(lb.style, {
+      position: 'fixed', inset: '0',
+      background: 'rgba(0,0,0,.93)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      gap: '0', zIndex: '20000'
+    });
+
+    lb.innerHTML = `
+      <button class="lb-close" aria-label="閉じる">×</button>
+      <button class="lb-nav lb-prev" aria-label="前へ">&#8249;</button>
+      <figure class="lb-fig">
+        <img src="" alt="" style="max-width:100%;max-height:80vh;display:block;margin:0 auto;">
+        <figcaption style="margin-top:12px;font-family:'Bungee',sans-serif;letter-spacing:.2em;color:#fff;text-align:center;font-size:.85rem;"></figcaption>
+      </figure>
+      <button class="lb-nav lb-next" aria-label="次へ">&#8250;</button>
+    `;
+
+    Object.assign(lb.querySelector('.lb-close').style, {
+      position: 'absolute', top: '20px', right: '24px',
+      background: 'transparent', color: '#fff',
+      fontSize: '44px', border: 'none', cursor: 'pointer',
+      zIndex: '1', lineHeight: '1', padding: '0'
+    });
+    lb.querySelectorAll('.lb-nav').forEach(btn => {
+      Object.assign(btn.style, {
+        background: 'rgba(255,255,255,.10)', color: '#fff',
+        border: 'none', cursor: 'pointer', fontSize: '72px',
+        lineHeight: '1', padding: '0 18px', borderRadius: '4px',
+        flexShrink: '0', transition: 'background .2s', userSelect: 'none'
+      });
+      btn.addEventListener('mouseover', () => btn.style.background = 'rgba(255,255,255,.24)');
+      btn.addEventListener('mouseout', () => btn.style.background = 'rgba(255,255,255,.10)');
+    });
+    Object.assign(lb.querySelector('.lb-fig').style, {
+      maxWidth: '80vw', textAlign: 'center', flexShrink: '0'
+    });
+
+    function load(i) {
+      const cell = cells[i];
       const img = cell.querySelector('img');
-      if (!img) return;
       const fullSrc = img.src.replace('sz=w400', 'sz=w1200');
       const grid = cell.closest('.gallery-grid');
       const year = grid ? grid.dataset.year : '';
+      lb.querySelector('.lb-fig img').src = fullSrc;
+      lb.querySelector('.lb-fig img').alt = year;
+      lb.querySelector('figcaption').textContent = year ? "ROCK'N'ROLL SUMMIT " + year : '';
+      const prev = lb.querySelector('.lb-prev');
+      const next = lb.querySelector('.lb-next');
+      prev.style.opacity = i === 0 ? '.25' : '1';
+      next.style.opacity = i === cells.length - 1 ? '.25' : '1';
+      prev.disabled = i === 0;
+      next.disabled = i === cells.length - 1;
+    }
+
+    load(idx);
+    document.body.appendChild(lb);
+
+    const close = () => {
+      lb.remove();
+      document.removeEventListener('keydown', onKey);
+    };
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-prev').addEventListener('click', e => {
+      e.stopPropagation();
+      if (idx > 0) load(--idx);
+    });
+    lb.querySelector('.lb-next').addEventListener('click', e => {
+      e.stopPropagation();
+      if (idx < cells.length - 1) load(++idx);
+    });
+
+    function onKey(ev) {
+      if (ev.key === 'Escape') close();
+      else if (ev.key === 'ArrowLeft' && idx > 0) load(--idx);
+      else if (ev.key === 'ArrowRight' && idx < cells.length - 1) load(++idx);
+    }
+    document.addEventListener('keydown', onKey);
+  }
+
+  /* ---------- 鉄壁Wall：写真クリックでライトボックス ---------- */
+  document.querySelectorAll('.wall-photo').forEach(photo => {
+    photo.addEventListener('click', () => {
+      const img = photo.querySelector('img');
+      if (!img) return;
+      const fullSrc = img.src.replace('sz=w300', 'sz=w1200');
+      const year = photo.dataset.year || '';
       openLightbox(fullSrc, year ? 'ROCK\'N\'ROLL SUMMIT ' + year : '');
     });
   });
 
-  /* ---------- 鉄壁Wall：写真クリックでライトボックス ---------- */
-  document.querySelectorAll('.wall-photo').forEach(photo => {
+  /* ---------- SHOPコラージュ写真クリックでライトボックス ---------- */
+  document.querySelectorAll('.sc-photo').forEach(photo => {
     photo.addEventListener('click', () => {
       const img = photo.querySelector('img');
       if (!img) return;
