@@ -408,7 +408,7 @@
         const btn = document.createElement('button');
         btn.className = 'gpag-btn';
         btn.dataset.p = p;
-        btn.textContent = 'PAGE ' + p;
+        btn.textContent = p;
         btn.addEventListener('click', () => {
           showPage(p);
           // ギャラリーセクション先頭にスクロール
