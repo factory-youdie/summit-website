@@ -123,6 +123,43 @@
     });
   }
 
+  /* ---------- GALLERY：年別タブ切り替え ---------- */
+  const galleryTabs = document.querySelectorAll('.gallery-tab');
+  const galleryGrids = document.querySelectorAll('.gallery-grid');
+  galleryTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      galleryTabs.forEach(t => t.classList.remove('active'));
+      galleryGrids.forEach(g => g.classList.remove('active'));
+      tab.classList.add('active');
+      const year = tab.dataset.year;
+      const target = document.querySelector(`.gallery-grid[data-year="${year}"]`);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  /* ---------- GALLERY：写真クリックでライトボックス拡大 ---------- */
+  document.querySelectorAll('.gallery-cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const img = cell.querySelector('img');
+      if (!img) return;
+      const fullSrc = img.src.replace('sz=w400', 'sz=w1200');
+      const grid = cell.closest('.gallery-grid');
+      const year = grid ? grid.dataset.year : '';
+      openLightbox(fullSrc, year ? 'ROCK\'N\'ROLL SUMMIT ' + year : '');
+    });
+  });
+
+  /* ---------- 鉄壁Wall：写真クリックでライトボックス ---------- */
+  document.querySelectorAll('.wall-photo').forEach(photo => {
+    photo.addEventListener('click', () => {
+      const img = photo.querySelector('img');
+      if (!img) return;
+      const fullSrc = img.src.replace('sz=w300', 'sz=w1200');
+      const year = photo.dataset.year || '';
+      openLightbox(fullSrc, year ? 'ROCK\'N\'ROLL SUMMIT ' + year : '');
+    });
+  });
+
   /* ---------- 開発者向けロゴクリックでイースターエッグ ---------- */
   const star = document.querySelector('.logo-star');
   if (star) {
