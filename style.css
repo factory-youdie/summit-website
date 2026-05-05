@@ -1362,20 +1362,46 @@ ul{list-style:none}
   .gallery-tab{font-size:11px;padding:5px 12px}
 }
 
-/* ===== GALLERY CELL WATERMARK ===== */
-.gallery-cell::after{
-  content:"";
-  position:absolute;
-  bottom:8px;right:8px;
-  width:52px;height:26px;
-  background:url('img/rrs_logo.png') no-repeat center/contain;
-  opacity:.60;
-  filter:brightness(100) saturate(0);
-  pointer-events:none;
-  z-index:3;
-}
 
 /* ===== SCATTERED WALL PHOTOS ===== */
+/* ===== HISTORY 散らし写真 ===== */
+.history-wall-photos{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+.hwp{
+  position:absolute;
+  width:clamp(90px,10vw,150px);
+  pointer-events:auto;
+  cursor:zoom-in;
+  filter:drop-shadow(2px 4px 12px rgba(0,0,0,.85));
+  transition:transform .25s ease,filter .25s,z-index 0s;
+  z-index:2;
+}
+.hwp:hover{
+  transform:scale(1.15) rotate(0deg) !important;
+  filter:drop-shadow(4px 8px 20px rgba(0,0,0,.95));
+  z-index:30;
+}
+.hwp img{
+  width:100%;
+  display:block;
+  border:3px solid #1a1a1a;
+  background:#111;
+}
+.hwp::before{
+  content:"";
+  position:absolute;
+  top:-8px;left:50%;
+  transform:translateX(-50%);
+  width:44px;height:14px;
+  background:var(--tape);
+  border:1px solid var(--tape-edge);
+  z-index:2;
+}
+
 .wall-scatter{
   position:absolute;
   width:clamp(100px,13vw,170px);
