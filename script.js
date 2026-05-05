@@ -30,8 +30,9 @@
   });
 
   /* ---------- フェードイン（IntersectionObserver） ---------- */
+  // .flyer-card は常に表示（ナビジャンプ時に消えるバグを防ぐため除外）
   const fadeTargets = document.querySelectorAll(
-    '.section-header, .about-card, .news-item, .history-item, .flyer-card, .movie-card, .gallery-item, .interview-card, .big-link, .archive-card'
+    '.section-header, .about-card, .news-item, .history-item, .movie-card, .gallery-item, .interview-card, .big-link, .archive-card'
   );
   fadeTargets.forEach(el => {
     el.style.opacity = '0';
@@ -43,12 +44,18 @@
       if (entry.isIntersecting) {
         const el = entry.target;
         el.style.opacity = '1';
-        el.style.transform = el.style.transform.replace(' translateY(30px)', '');
+        el.style.transform = el.style.transform.replace(/\s*translateY\(30px\)/, '');
         io.unobserve(el);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   fadeTargets.forEach(el => io.observe(el));
+
+  /* ---------- フライヤーカードを常時表示 ---------- */
+  document.querySelectorAll('.flyer-card').forEach(el => {
+    el.style.opacity = '1';
+    el.style.transform = '';
+  });
 
   /* ---------- エンドロール（リファレンス画像準拠：スクロールせず一画面） ---------- */
   // v2はスクロール演出ではなく参考画像のような掠れたコラージュ表示なので、
