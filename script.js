@@ -389,9 +389,9 @@
     });
   })();
 
-  /* ---------- ギャラリー：ページネーション（20枚/ページ） ---------- */
+  /* ---------- ギャラリー：ページネーション（30枚/ページ） ---------- */
   (function() {
-    const PER = 20;
+    const PER = 30;
     document.querySelectorAll('.gallery-grid').forEach(grid => {
       const cells = Array.from(grid.querySelectorAll('.gallery-cell'));
       if (cells.length <= PER) return;
