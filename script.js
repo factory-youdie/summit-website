@@ -339,21 +339,26 @@
 
   /* ---------- HISTORYウォール写真クリックで前後ナビ付きライトボックス ---------- */
   (function () {
-    const hwpImgs = Array.from(document.querySelectorAll('.hwp img'));
     const lb      = document.getElementById('hwp-lightbox');
     const lbImg   = document.getElementById('hwp-lightbox-img');
     const lbBg    = document.getElementById('hwp-lightbox-bg');
     const btnClose = document.getElementById('hwp-lightbox-close');
     const btnPrev  = document.getElementById('hwp-lightbox-prev');
     const btnNext  = document.getElementById('hwp-lightbox-next');
-    if (!lb || hwpImgs.length === 0) return;
+    if (!lb) return;
 
     let current = 0;
 
+    function getHwpImgs() {
+      return Array.from(document.querySelectorAll('.hwp img'));
+    }
+
     function show(idx) {
-      current = (idx + hwpImgs.length) % hwpImgs.length;
+      const imgs = getHwpImgs();
+      if (!imgs.length) return;
+      current = (idx + imgs.length) % imgs.length;
       lbImg.style.opacity = '0';
-      const src = hwpImgs[current].src.replace('sz=w300', 'sz=w1200');
+      const src = imgs[current].src.replace('sz=w300', 'sz=w1200');
       lbImg.src = src;
       lbImg.onload = () => { lbImg.style.opacity = '1'; };
       lb.classList.add('open');
@@ -366,8 +371,13 @@
       lbImg.src = '';
     }
 
-    hwpImgs.forEach((img, i) => {
-      img.parentElement.addEventListener('click', () => show(i));
+    /* イベント委譲：.hwp のクリックをdocumentレベルで捕捉 */
+    document.addEventListener('click', function (e) {
+      const hwp = e.target.closest('.hwp');
+      if (!hwp) return;
+      const imgs = getHwpImgs();
+      const idx = imgs.findIndex(img => img.parentElement === hwp || img === e.target);
+      if (idx !== -1) show(idx);
     });
 
     btnClose.addEventListener('click', close);
