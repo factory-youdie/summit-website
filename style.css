@@ -1609,21 +1609,24 @@ ul{list-style:none}
 
 /* ===== FLYER CREDIT ===== */
 .flyer-credit{
-  margin-top:14px;
-  font-family:"Special Elite","Courier New",monospace;
-  font-size:clamp(11px, 1.1vw, 15px);
-  letter-spacing:.25em;
+  margin-top:18px;
+  font-family:"Rubik Mono One","Bungee","Faster One",sans-serif;
+  font-size:clamp(13px, 1.4vw, 18px);
+  font-weight:900;
+  letter-spacing:.18em;
   color:var(--bone);
-  opacity:.75;
-  text-transform:uppercase;
-  filter:url(#distress);
+  opacity:.9;
+  text-transform:none;
+  line-height:1;
 }
 .flyer-credit em{
   font-style:normal;
-  font-family:"Rye","Special Elite",monospace;
-  font-size:1.15em;
-  letter-spacing:.3em;
-  color:var(--red);
-  text-shadow:0 0 12px rgba(255,30,30,.5);
-  opacity:1;
+  font-family:"Rubik Mono One","Bungee",sans-serif;
+  font-size:1.1em;
+  font-weight:900;
+  letter-spacing:.2em;
+  color:#fff;
+  text-shadow:
+    0 0 14px rgba(255,255,255,.35),
+    2px 2px 0 rgba(0,0,0,.8);
 }
