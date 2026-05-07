@@ -1642,3 +1642,15 @@ ul{list-style:none}
   opacity:.9;
   line-height:1;
 }
+
+/* ===== SECTION TAGLINE（flyer-creditと同スタイル） ===== */
+.section-tagline{
+  margin-top:18px;
+  font-family:"Rubik Mono One","Bungee","Faster One",sans-serif;
+  font-size:clamp(11px, 1.1vw, 15px);
+  font-weight:900;
+  letter-spacing:.18em;
+  color:var(--bone);
+  opacity:.9;
+  line-height:1;
+}
