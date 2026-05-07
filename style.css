@@ -995,6 +995,16 @@ ul{list-style:none}
 .interview-card:nth-child(2){transform:rotate(.8deg)}
 .interview-card:nth-child(3){transform:rotate(-.4deg)}
 .interview-card:hover{transform:rotate(0) scale(1.02);z-index:3}
+/* 黒ベース override（ライナーノーツ等） */
+.interview-card.interview-dark{
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(120,0,0,.18), transparent 60%),
+    #0e0b0b;
+  color:#f4ede0;
+  border:1px solid rgba(180,0,0,.35);
+  box-shadow:0 14px 30px rgba(0,0,0,.7), 0 0 0 1px rgba(180,0,0,.2);
+}
+.interview-card.interview-dark .interview-meta{color:#f4ede0;}
 .interview-thumb{
   background:#0a0908;
   display:flex;align-items:center;justify-content:center;
@@ -1659,17 +1669,19 @@ ul{list-style:none}
 .interview-pinhead-spread{
   position:relative;
   background:
-    radial-gradient(ellipse at 30% 0%, rgba(0,0,0,.06), transparent 70%),
-    var(--bone);
-  color:var(--ink);
+    radial-gradient(ellipse at 30% 0%, rgba(120,0,0,.18), transparent 60%),
+    #0e0b0b;
+  color:#f4ede0;
   display:flex;flex-direction:column;
-  box-shadow:0 14px 30px rgba(0,0,0,.6);
+  border:1px solid rgba(180,0,0,.35);
+  box-shadow:0 14px 30px rgba(0,0,0,.7), 0 0 0 1px rgba(180,0,0,.2);
   transform:rotate(.3deg);
   transition:transform .3s;
 }
 .interview-pinhead-spread:hover{
   transform:rotate(0) scale(1.01);z-index:3;
 }
+.interview-pinhead-spread .interview-meta{color:#f4ede0;}
 .pinhead-spread-thumbs{
   display:flex;
   gap:0;
