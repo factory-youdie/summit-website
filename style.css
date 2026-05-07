@@ -119,14 +119,14 @@ ul{list-style:none}
 }
 .splatter-hero-2{
   top:8%;right:3%;width:300px;height:300px;
-  background-image:url('img/splat_full.png');
+  background-image:url('img/splat_b.png');
   opacity:.35;
   transform:rotate(-25deg);
   z-index:2;
 }
 .splatter-hero-3{
   top:62%;right:-20px;width:260px;height:260px;
-  background-image:url('img/splat_full.png');
+  background-image:url('img/splat_b.png');
   opacity:.3;
   transform:rotate(180deg);
   z-index:7;
@@ -140,7 +140,7 @@ ul{list-style:none}
 }
 .splatter-hero-5{
   bottom:10%;right:20%;width:160px;height:160px;
-  background-image:url('img/splat_full.png');
+  background-image:url('img/splat_b.png');
   opacity:.28;
   transform:rotate(-110deg) scale(.6);
   z-index:7;
@@ -435,7 +435,7 @@ ul{list-style:none}
   inset:-35% -20%;
   background:
     url('img/splat_a.png') no-repeat 0%   20% / 45%,
-    url('img/splat_full.png') no-repeat 100% 80% / 40%,
+    url('img/splat_b.png') no-repeat 100% 80% / 40%,
     url('img/splat_a.png') no-repeat 50%  105%/ 30%;
   opacity:.25;
   z-index:0;
@@ -1605,177 +1605,4 @@ ul{list-style:none}
 @media(max-width:600px){
   #hwp-lightbox-prev{left:4px;width:36px;}
   #hwp-lightbox-next{right:4px;width:36px;}
-}
-
-/* ===== SECTION-WIDE BLOOD SPLATTER（splat_a + splat_full） ===== */
-/* ABOUTセクション */
-.splatter-about-1{
-  top:-30px;right:-40px;width:380px;height:380px;
-  background-image:url('img/splat_full.png');
-  opacity:.3;transform:rotate(-30deg);
-}
-.splatter-about-2{
-  bottom:-20px;left:-30px;width:290px;height:290px;
-  background-image:url('img/splat_a.png');
-  opacity:.25;transform:rotate(155deg);
-}
-/* NEWSセクション */
-.splatter-news-1{
-  top:-20px;left:-30px;width:340px;height:340px;
-  background-image:url('img/splat_full.png');
-  opacity:.28;transform:rotate(22deg);
-}
-.splatter-news-2{
-  bottom:-30px;right:-20px;width:270px;height:270px;
-  background-image:url('img/splat_a.png');
-  opacity:.22;transform:rotate(-65deg);
-}
-/* HISTORYセクション */
-.splatter-hist-1{
-  top:-40px;right:-50px;width:420px;height:420px;
-  background-image:url('img/splat_a.png');
-  opacity:.28;transform:rotate(-15deg);
-}
-.splatter-hist-2{
-  top:40%;left:-40px;width:320px;height:320px;
-  background-image:url('img/splat_full.png');
-  opacity:.2;transform:rotate(92deg);
-}
-.splatter-hist-3{
-  bottom:-30px;right:5%;width:260px;height:260px;
-  background-image:url('img/splat_a.png');
-  opacity:.22;transform:rotate(205deg);
-}
-/* FLYERセクション */
-.splatter-flyer-1{
-  top:-30px;left:-40px;width:360px;height:360px;
-  background-image:url('img/splat_full.png');
-  opacity:.3;transform:rotate(-48deg);
-}
-.splatter-flyer-2{
-  bottom:-20px;right:-30px;width:310px;height:310px;
-  background-image:url('img/splat_a.png');
-  opacity:.25;transform:rotate(135deg);
-}
-/* MEDIAセクション */
-.splatter-media-1{
-  top:-20px;right:-30px;width:320px;height:320px;
-  background-image:url('img/splat_a.png');
-  opacity:.28;transform:rotate(40deg);
-}
-.splatter-media-2{
-  bottom:-25px;left:-35px;width:290px;height:290px;
-  background-image:url('img/splat_full.png');
-  opacity:.22;transform:rotate(-82deg);
-}
-/* GALLERYセクション */
-.splatter-gallery-1{
-  top:-30px;right:-40px;width:370px;height:370px;
-  background-image:url('img/splat_full.png');
-  opacity:.28;transform:rotate(-22deg);
-}
-.splatter-gallery-2{
-  bottom:-30px;left:-30px;width:310px;height:310px;
-  background-image:url('img/splat_a.png');
-  opacity:.24;transform:rotate(162deg);
-}
-/* SHOPセクション */
-.splatter-shop-1{
-  top:-30px;left:-40px;width:340px;height:340px;
-  background-image:url('img/splat_a.png');
-  opacity:.28;transform:rotate(12deg);
-}
-.splatter-shop-2{
-  top:30%;right:-30px;width:290px;height:290px;
-  background-image:url('img/splat_full.png');
-  opacity:.22;transform:rotate(-103deg);
-}
-/* SNSセクション */
-.splatter-sns-1{
-  top:-20px;right:-30px;width:310px;height:310px;
-  background-image:url('img/splat_full.png');
-  opacity:.28;transform:rotate(62deg);
-}
-.splatter-sns-2{
-  bottom:-20px;left:-30px;width:280px;height:280px;
-  background-image:url('img/splat_a.png');
-  opacity:.22;transform:rotate(-22deg);
-}
-/* ENDROLLセクション */
-.splatter-endroll-1{
-  top:-30px;left:-40px;width:360px;height:360px;
-  background-image:url('img/splat_a.png');
-  opacity:.22;transform:rotate(48deg);
-}
-.splatter-endroll-2{
-  bottom:-30px;right:-30px;width:330px;height:330px;
-  background-image:url('img/splat_full.png');
-  opacity:.22;transform:rotate(-125deg);
-}
-
-/* ===== SPLAT_B（横流れ血痕）各セクション ===== */
-/* splat_b.pngは横長(1536x1024)なので幅広・低めに配置 */
-.splatter-b{
-  background-image:url('img/splat_b.png');
-}
-/* ヒーローに追加 */
-.splatter-hero-b{
-  top:50%;left:-5%;width:600px;height:400px;
-  background-image:url('img/splat_b.png');
-  opacity:.2;transform:rotate(-8deg) translateY(-50%);
-  z-index:2;
-}
-/* ABOUTセクション横断 */
-.splatter-about-b{
-  top:40%;left:-8%;width:580px;height:390px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(5deg);
-}
-/* NEWSセクション横断 */
-.splatter-news-b{
-  bottom:15%;right:-6%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(-12deg) scaleX(-1);
-}
-/* HISTORYセクション横断 */
-.splatter-hist-b{
-  top:22%;right:-8%;width:580px;height:385px;
-  background-image:url('img/splat_b.png');
-  opacity:.16;transform:rotate(8deg) scaleX(-1);
-}
-/* FLYERセクション横断 */
-.splatter-flyer-b{
-  bottom:20%;left:-5%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(-6deg);
-}
-/* MEDIAセクション横断 */
-.splatter-media-b{
-  top:35%;left:-6%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(10deg);
-}
-/* GALLERYセクション横断 */
-.splatter-gallery-b{
-  top:45%;right:-6%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.16;transform:rotate(-9deg) scaleX(-1);
-}
-/* SHOPセクション横断 */
-.splatter-shop-b{
-  bottom:25%;right:-5%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(7deg) scaleX(-1);
-}
-/* SNSセクション横断 */
-.splatter-sns-b{
-  top:30%;left:-6%;width:540px;height:360px;
-  background-image:url('img/splat_b.png');
-  opacity:.18;transform:rotate(-5deg);
-}
-/* ENDROLLセクション横断 */
-.splatter-endroll-b{
-  top:45%;left:-5%;width:560px;height:370px;
-  background-image:url('img/splat_b.png');
-  opacity:.2;transform:rotate(3deg);
 }
