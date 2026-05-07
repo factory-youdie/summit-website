@@ -973,7 +973,7 @@ ul{list-style:none}
 .interview-list{
   max-width:1300px;margin:0 auto;
   display:grid;
-  grid-template-columns:1fr 1fr 1.6fr;
+  grid-template-columns:1fr 2fr 1.2fr;
   gap:36px;
 }
 @media (max-width:900px){
@@ -1653,4 +1653,45 @@ ul{list-style:none}
   color:var(--bone);
   opacity:.9;
   line-height:1;
+}
+
+/* ===== PINHEAD 見開きカード ===== */
+.interview-pinhead-spread{
+  position:relative;
+  background:
+    radial-gradient(ellipse at 30% 0%, rgba(0,0,0,.06), transparent 70%),
+    var(--bone);
+  color:var(--ink);
+  display:flex;flex-direction:column;
+  box-shadow:0 14px 30px rgba(0,0,0,.6);
+  transform:rotate(.3deg);
+  transition:transform .3s;
+}
+.interview-pinhead-spread:hover{
+  transform:rotate(0) scale(1.01);z-index:3;
+}
+.pinhead-spread-thumbs{
+  display:flex;
+  gap:0;
+  background:#0a0908;
+}
+.pinhead-page{
+  display:block;
+  flex:1;
+  overflow:hidden;
+  transition:opacity .2s;
+}
+.pinhead-page:hover{
+  opacity:.85;
+}
+.pinhead-page img{
+  width:100%;height:auto;display:block;
+}
+/* ページ間の縦線（見開きの綴じ目） */
+.pinhead-page:first-child{
+  border-right:2px solid rgba(0,0,0,.4);
+}
+@media(max-width:900px){
+  .pinhead-spread-thumbs{flex-direction:column;}
+  .pinhead-page:first-child{border-right:none;border-bottom:2px solid rgba(0,0,0,.4);}
 }
