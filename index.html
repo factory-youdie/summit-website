@@ -23,10 +23,15 @@
 
 /* ===== BILLY MEDIA CARD ===== */
 .interview-billy{
+  position:relative;
+  display:flex;flex-direction:column;
+  transition:transform .3s;
   background:radial-gradient(ellipse at 30% 0%,rgba(120,0,0,.18),transparent 60%),#0e0b0b !important;
   color:#f4ede0 !important;
   border:1px solid rgba(180,0,0,.35) !important;
   box-shadow:0 14px 30px rgba(0,0,0,.7),0 0 0 1px rgba(180,0,0,.2) !important;
+  text-decoration:none;
+  cursor:pointer;
 }
 .interview-billy:hover{transform:rotate(0) scale(1.03) !important;box-shadow:0 20px 50px rgba(0,0,0,.8),0 0 20px rgba(200,0,0,.3) !important;}
 .interview-thumb--billy{
@@ -733,7 +738,7 @@
   </div>
 
   <div class="interview-list">
-    <a href="billy-stayfree.html" class="interview-card interview-billy">
+    <a href="billy-stayfree.html" class="interview-billy">
       <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
       <div class="interview-thumb interview-thumb--billy">
         <img
