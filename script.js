@@ -484,6 +484,80 @@
     });
   })();
 
+  /* ---------- PINHEAD見開きページ：ライトボックスで開く ---------- */
+  (function() {
+    const pages = Array.from(document.querySelectorAll('.pinhead-page'));
+    pages.forEach((link, i) => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        openPinheadLightbox(pages, i);
+      });
+    });
+
+    function openPinheadLightbox(links, startIdx) {
+      let idx = startIdx;
+      const lb = document.createElement('div');
+      lb.className = 'lb lb-gallery';
+      Object.assign(lb.style, {
+        position: 'fixed', inset: '0',
+        background: 'rgba(0,0,0,.94)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        gap: '0', zIndex: '20000'
+      });
+      lb.innerHTML = `
+        <button class="lb-close" aria-label="閉じる">×</button>
+        <button class="lb-nav lb-prev" aria-label="前へ">&#8249;</button>
+        <figure class="lb-fig">
+          <img src="" alt="" style="max-width:100%;max-height:82vh;display:block;margin:0 auto;">
+          <figcaption style="margin-top:10px;font-family:'Bungee',sans-serif;letter-spacing:.2em;color:#ccc;text-align:center;font-size:.8rem;">PINHEAD vol.30 OCTOBER 2015</figcaption>
+        </figure>
+        <button class="lb-nav lb-next" aria-label="次へ">&#8250;</button>
+      `;
+      Object.assign(lb.querySelector('.lb-close').style, {
+        position: 'absolute', top: '20px', right: '24px',
+        background: 'transparent', color: '#fff',
+        fontSize: '44px', border: 'none', cursor: 'pointer',
+        zIndex: '1', lineHeight: '1', padding: '0'
+      });
+      lb.querySelectorAll('.lb-nav').forEach(btn => {
+        Object.assign(btn.style, {
+          background: 'rgba(255,255,255,.10)', color: '#fff',
+          border: 'none', cursor: 'pointer', fontSize: '72px',
+          lineHeight: '1', padding: '0 18px', borderRadius: '4px',
+          flexShrink: '0', transition: 'background .2s', userSelect: 'none'
+        });
+        btn.addEventListener('mouseover', () => btn.style.background = 'rgba(255,255,255,.24)');
+        btn.addEventListener('mouseout',  () => btn.style.background = 'rgba(255,255,255,.10)');
+      });
+      Object.assign(lb.querySelector('.lb-fig').style, {
+        maxWidth: '80vw', textAlign: 'center', flexShrink: '0'
+      });
+
+      function load(i) {
+        lb.querySelector('.lb-fig img').src = links[i].getAttribute('href');
+        lb.querySelector('.lb-prev').style.opacity = i === 0 ? '.25' : '1';
+        lb.querySelector('.lb-next').style.opacity = i === links.length - 1 ? '.25' : '1';
+        lb.querySelector('.lb-prev').disabled = i === 0;
+        lb.querySelector('.lb-next').disabled = i === links.length - 1;
+        idx = i;
+      }
+      load(startIdx);
+      document.body.appendChild(lb);
+
+      const close = () => { lb.remove(); document.removeEventListener('keydown', onKey); };
+      lb.addEventListener('click', e => { if (e.target === lb) close(); });
+      lb.querySelector('.lb-close').addEventListener('click', close);
+      lb.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); if (idx > 0) load(idx - 1); });
+      lb.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); if (idx < links.length - 1) load(idx + 1); });
+      function onKey(ev) {
+        if (ev.key === 'Escape') close();
+        else if (ev.key === 'ArrowLeft'  && idx > 0)              load(idx - 1);
+        else if (ev.key === 'ArrowRight' && idx < links.length-1) load(idx + 1);
+      }
+      document.addEventListener('keydown', onKey);
+    }
+  })();
+
   /* ---------- 開発者向けロゴクリックでイースターエッグ ---------- */
   const star = document.querySelector('.logo-star');
   if (star) {
