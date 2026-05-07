@@ -49,11 +49,11 @@ a{color:inherit;text-decoration:none}
 /* ===== HERO AREA ===== */
 .hero{
   position:relative;
-  min-height:100vh;
+  min-height:60vh;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   overflow:hidden;
-  padding:80px 20px 60px;
+  padding:100px 20px 50px;
   background:#060606;
 }
 /* Blood splatter backdrop */
@@ -221,7 +221,7 @@ a{color:inherit;text-decoration:none}
   position:relative;
   background:
     radial-gradient(ellipse at 50% 0%, rgba(120,0,0,.08), transparent 50%),
-    #0a0908;
+    #111010;
   border-top:3px solid var(--red-deep);
 }
 /* Blood spots decorating the article area */
@@ -261,11 +261,11 @@ a{color:inherit;text-decoration:none}
 
 /* Article paragraphs */
 .article-body p{
-  font-size:clamp(14px,2.2vw,17px);
-  line-height:1.95;
+  font-size:clamp(15px,2.2vw,17px);
+  line-height:2;
   letter-spacing:.04em;
-  color:rgba(244,237,224,.88);
-  margin-bottom:26px;
+  color:#e8dfc8;
+  margin-bottom:28px;
   text-align:justify;
 }
 .article-body .lede{
@@ -410,7 +410,14 @@ a{color:inherit;text-decoration:none}
     <p class="article-title-en">I LOVE BILLY！ STAY FREE！！</p>
     <div class="skull-divider"><span>☠</span></div>
   </div>
+
+  <!-- スクロール誘導 -->
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;text-align:center;animation:scrollBounce 1.8s ease-in-out infinite;">
+    <div style="font-family:'Special Elite',monospace;font-size:10px;letter-spacing:.2em;color:rgba(255,43,43,.7);margin-bottom:4px;">SCROLL</div>
+    <div style="font-size:22px;color:rgba(255,43,43,.7);">↓</div>
+  </div>
 </section>
+<style>@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}</style>
 
 <!-- ===== BILLY PHOTO ===== -->
 <div style="position:relative;z-index:2;background:#060606;padding:0 20px 48px;display:flex;flex-direction:column;align-items:center;">
