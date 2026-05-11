@@ -163,8 +163,10 @@
     card.addEventListener('click', e => {
       const img = card.querySelector('img');
       if (!img) return;
-      e.preventDefault();
       const href = card.getAttribute('href') || img.src;
+      // .htmlページへのリンクはそのまま遷移させる
+      if (href && href.match(/\.html(#.*)?$/)) return;
+      e.preventDefault();
       openLightbox(href, img.alt || '');
     });
   });
