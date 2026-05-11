@@ -543,7 +543,7 @@ ul{list-style:none}
   display:inline-block;
   font-family:"Rubik Mono One","Faster One","Bungee",sans-serif;
   font-weight:400;
-  font-size:clamp(50px, 10vw, 128px);
+  font-size:clamp(16px, 7.5vw, 128px);
   letter-spacing:.02em;
   color:#ff1a1a;
   line-height:.9;
@@ -627,7 +627,7 @@ ul{list-style:none}
   font-weight:700;
   letter-spacing:.04em;
   transform:rotate(-.4deg);
-  text-align:center;
+  text-align:left;
   /* 破れた古い紙のギザギザエッジ */
   clip-path: polygon(
     0% 1.4%,  1.6% 0%,    3.8% 2.1%,  6.2% 0.3%,  8.5% 1.8%,  11% 0%,    13.4% 2.4%, 15.8% 0.6%, 18.2% 1.9%, 20.7% 0%,
@@ -658,12 +658,12 @@ ul{list-style:none}
   mix-blend-mode:multiply;
   pointer-events:none;
 }
-.about-card p{margin-bottom:1.4em;position:relative;z-index:2;text-align:center;}
+.about-card p{margin-bottom:1.4em;position:relative;z-index:2;text-align:left;}
 .about-card .dedication{
   margin-top:24px;
   padding-top:24px;
   border-top:2px dashed rgba(0,0,0,.2);
-  text-align:center;
+  text-align:left;
 }
 
 /* ===== NEW ===== */
