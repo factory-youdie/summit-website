@@ -165,7 +165,11 @@
       if (!img) return;
       const href = card.getAttribute('href') || img.src;
       // .htmlページへのリンクはそのまま遷移させる
-      if (href && href.match(/\.html(#.*)?$/)) return;
+      if (href && href.match(/\.html(#.*)?$/)) {
+        e.preventDefault();
+        window.location.href = href;
+        return;
+      }
       e.preventDefault();
       openLightbox(href, img.alt || '');
     });
