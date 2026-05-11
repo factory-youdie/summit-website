@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HARD BOP MAGAZINE ロッケンロー★サミット掲載記事 Vol.3・Vol.5">
+<title>HARD BOP MAGAZINE | ロッケンロー★サミット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Faster+One&family=Rubik+Mono+One&family=Bungee&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060606;
+  --red:#c01818;
+  --red-deep:#7a0d0d;
+  --white:#f4ede0;
+  --bone:#ddd6c2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);overflow-x:hidden;scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:"Noto Sans JP","BIZ UDPGothic","Helvetica Neue",sans-serif;
+  font-weight:700;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ===== BACK BUTTON ===== */
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  position:fixed;top:20px;left:20px;z-index:200;
+  background:rgba(0,0,0,.8);border:2px solid var(--red);
+  color:var(--white);
+  padding:8px 16px;
+  font-family:"Special Elite",monospace;
+  font-size:13px;letter-spacing:.1em;
+  transition:background .2s,transform .2s;
+  backdrop-filter:blur(4px);
+}
+.back-btn:hover{background:var(--red-deep);transform:translateX(-3px);}
+.back-btn::before{content:"◀ ";}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  text-align:center;
+  padding:80px 24px 48px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(160,0,0,.35), transparent 60%),
+    #060606;
+  border-bottom:2px solid rgba(255,40,40,.2);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 1px,transparent 1px 4px);
+  pointer-events:none;
+}
+.hero-mag-label{
+  font-family:"Special Elite",monospace;
+  font-size:11px;letter-spacing:.3em;
+  color:rgba(255,80,80,.8);
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.hero-title{
+  font-family:"Rubik Mono One","Faster One","Bungee",sans-serif;
+  font-size:clamp(48px,10vw,96px);
+  letter-spacing:.06em;
+  line-height:.9;
+  color:var(--red);
+  text-shadow:
+    0 0 30px rgba(255,40,40,.5),
+    4px 4px 0 rgba(180,0,0,.4);
+}
+.hero-title span{color:var(--white);}
+.hero-sub{
+  font-family:"Special Elite",monospace;
+  font-size:13px;letter-spacing:.2em;
+  color:rgba(255,220,200,.6);
+  margin-top:16px;
+}
+
+/* ===== VOL NAV ===== */
+.vol-nav{
+  display:flex;justify-content:center;gap:16px;
+  padding:24px 24px 0;
+}
+.vol-nav a{
+  font-family:"Rubik Mono One","Faster One",sans-serif;
+  font-size:14px;letter-spacing:.1em;
+  color:rgba(255,200,180,.6);
+  border:1px solid rgba(255,40,40,.3);
+  padding:6px 20px;
+  transition:all .2s;
+}
+.vol-nav a:hover{background:rgba(255,40,40,.15);color:var(--white);border-color:var(--red);}
+
+/* ===== VOLUME SECTION ===== */
+.vol-section{
+  max-width:1100px;
+  margin:0 auto;
+  padding:60px 24px 70px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.vol-header{
+  display:flex;align-items:flex-start;gap:32px;
+  margin-bottom:40px;
+}
+.vol-cover{
+  flex-shrink:0;
+  width:160px;
+  box-shadow:0 8px 30px rgba(0,0,0,.8),0 0 0 2px rgba(255,40,40,.2);
+  transition:transform .3s;
+}
+.vol-cover:hover{transform:scale(1.04);}
+.vol-cover img{width:100%;height:auto;display:block;}
+.vol-info{padding-top:8px;}
+.vol-label{
+  font-family:"Rubik Mono One","Faster One",sans-serif;
+  font-size:clamp(28px,5vw,52px);
+  color:var(--red);
+  letter-spacing:.05em;
+  line-height:1;
+  margin-bottom:10px;
+  text-shadow:0 0 20px rgba(255,40,40,.4);
+}
+.vol-subtitle{
+  font-family:"Special Elite",monospace;
+  font-size:12px;letter-spacing:.15em;
+  color:rgba(255,220,200,.55);
+  margin-bottom:6px;
+}
+.vol-event{
+  font-size:15px;letter-spacing:.04em;
+  color:var(--white);
+  line-height:1.5;
+}
+.vol-note{
+  font-family:"Special Elite",monospace;
+  font-size:11px;letter-spacing:.08em;
+  color:rgba(255,180,160,.45);
+  margin-top:10px;
+}
+
+/* ===== PHOTO GRID ===== */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:12px;
+}
+.photo-cell{
+  display:block;
+  overflow:hidden;
+  background:#111;
+  border:1px solid rgba(255,255,255,.06);
+  transition:transform .25s,box-shadow .25s;
+  cursor:zoom-in;
+  text-decoration:none;
+}
+.photo-cell:hover{
+  transform:scale(1.03);
+  box-shadow:0 8px 24px rgba(0,0,0,.7),0 0 0 2px rgba(255,40,40,.4);
+}
+.photo-cell img{
+  width:100%;aspect-ratio:4/3;
+  object-fit:cover;
+  display:block;
+  filter:contrast(1.05) saturate(0.9);
+  transition:filter .3s;
+}
+.photo-cell:hover img{filter:contrast(1.1) saturate(1);}
+
+/* ===== LIGHTBOX ===== */
+#lb{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.95);
+  align-items:center;justify-content:center;
+}
+#lb.open{display:flex;}
+#lb-img{
+  max-width:92vw;max-height:90vh;
+  object-fit:contain;display:block;
+  transition:opacity .2s;
+}
+#lb-close{
+  position:fixed;top:16px;right:20px;z-index:10001;
+  background:rgba(0,0,0,.7);color:#fff;
+  border:2px solid rgba(255,255,255,.35);border-radius:50%;
+  width:46px;height:46px;font-size:1.3rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+#lb-close:hover{background:var(--red);}
+#lb-prev,#lb-next{
+  position:fixed;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.6);color:#fff;
+  border:2px solid rgba(255,255,255,.2);
+  width:50px;height:70px;font-size:1.6rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;z-index:10001;
+}
+#lb-prev{left:8px;}#lb-next{right:8px;}
+#lb-prev:hover,#lb-next:hover{background:var(--red);}
+
+
+@media(max-width:600px){
+  .vol-header{flex-direction:column;}
+  .vol-cover{width:120px;}
+  .photo-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html#media" class="back-btn">BACK</a>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-mag-label">RIDE, SHOUT, ROCK &amp; ROLL</p>
+  <h1 class="hero-title">HARD <span>BOP</span></h1>
+  <p class="hero-sub">MAGAZINE &nbsp;—&nbsp; ロッケンロー★サミット2018,2019 イベントレポート掲載</p>
+</div>
+
+<!-- VOL NAV -->
+<nav class="vol-nav">
+  <a href="#vol3">Vol.3</a>
+  <a href="#vol5">Vol.5</a>
+</nav>
+
+<!-- ===== VOL.3 ===== -->
+<section class="vol-section" id="vol3">
+  <div class="vol-header">
+    <a href="https://drive.google.com/thumbnail?id=1f_CvEXYVYsD411P-ww8LqIND4XZHjWsr&sz=w1600" target="_blank" rel="noopener" class="vol-cover">
+      <img src="https://drive.google.com/thumbnail?id=1f_CvEXYVYsD411P-ww8LqIND4XZHjWsr&sz=w400" alt="HARD BOP Vol.3">
+    </a>
+    <div class="vol-info">
+      <div class="vol-label">Vol.3</div>
+      <p class="vol-subtitle">平成30年11月29日発売</p>
+      <p class="vol-event">ROCK'N'ROLL SUMMIT 2018<br>道玄坂邪道六弦頂上作戦</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1LAjilrh3m4b6dxcGvoX0OxshtEMy_LEC&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1LAjilrh3m4b6dxcGvoX0OxshtEMy_LEC&sz=w400" alt="rs2018-01" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1zysZqYQ4zVpInfQrDZ5FGPDglwiyb5cY&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1zysZqYQ4zVpInfQrDZ5FGPDglwiyb5cY&sz=w400" alt="rs2018-02" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1C-H-AjFLgcIr3_V0LzEP_-T-t5XnsPqF&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1C-H-AjFLgcIr3_V0LzEP_-T-t5XnsPqF&sz=w400" alt="rs2018-03" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1aku-p-7e6b7FrLX4pyDldJJGR3O6YRXq&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1aku-p-7e6b7FrLX4pyDldJJGR3O6YRXq&sz=w400" alt="rs2018-04" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1GrlLAcHp-xebsb82fOH1IeWyNaF33x9z&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1GrlLAcHp-xebsb82fOH1IeWyNaF33x9z&sz=w400" alt="rs2018-05" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1mVUxaH7AkRhIVlYDPKeaa3aAtSjS0siv&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1mVUxaH7AkRhIVlYDPKeaa3aAtSjS0siv&sz=w400" alt="rs2018-06" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=105Pley5b4r4ocCOykj53tX7Dg8bz4Cqy&sz=w3000"><img src="https://drive.google.com/thumbnail?id=105Pley5b4r4ocCOykj53tX7Dg8bz4Cqy&sz=w400" alt="rs2018-07" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1AX5xRwdNhyr_CT9nJiWXhoASPJ1aq55J&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1AX5xRwdNhyr_CT9nJiWXhoASPJ1aq55J&sz=w400" alt="rs2018-08" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ===== VOL.5 ===== -->
+<section class="vol-section" id="vol5" style="border-bottom:none;padding-bottom:80px;">
+  <div class="vol-header">
+    <a href="https://drive.google.com/thumbnail?id=13B_HttkrgHc7G3sbD76jotMVNubKISHY&sz=w1600" target="_blank" rel="noopener" class="vol-cover">
+      <img src="https://drive.google.com/thumbnail?id=13B_HttkrgHc7G3sbD76jotMVNubKISHY&sz=w400" alt="HARD BOP Vol.5">
+    </a>
+    <div class="vol-info">
+      <div class="vol-label">Vol.5</div>
+      <p class="vol-subtitle">令和元年11月14日発売</p>
+      <p class="vol-event">ROCK'N'ROLL SUMMIT 2019<br>道玄坂邪道六弦頂上作戦</p>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1TJLuMvewZgIUVmYuWgNG-96Rm8w47gYg&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1TJLuMvewZgIUVmYuWgNG-96Rm8w47gYg&sz=w400" alt="rs2019-01" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1R0s6E8eFurG3vb4obUPP_nlwD3hcSDH4&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1R0s6E8eFurG3vb4obUPP_nlwD3hcSDH4&sz=w400" alt="rs2019-02" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=16ZQZjgZ4q2ugORd7l80cCPXeDD-OKyPC&sz=w3000"><img src="https://drive.google.com/thumbnail?id=16ZQZjgZ4q2ugORd7l80cCPXeDD-OKyPC&sz=w400" alt="rs2019-03" loading="lazy"></div>
+    <div class="photo-cell" data-full="https://drive.google.com/thumbnail?id=1xseE7ecjR1u1mAkky6ZfqDqBxqwsnqmL&sz=w3000"><img src="https://drive.google.com/thumbnail?id=1xseE7ecjR1u1mAkky6ZfqDqBxqwsnqmL&sz=w400" alt="rs2019-04" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-close">✕</button>
+  <button id="lb-prev">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next">›</button>
+</div>
+
+<script>
+(function(){
+  const lb  = document.getElementById('lb');
+  const img = document.getElementById('lb-img');
+  let cells = [], cur = 0;
+
+  function open(all, i){
+    cells = all; cur = i; show();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function show(){
+    img.style.opacity = 0;
+    img.src = cells[cur].dataset.full;
+    img.onload = () => img.style.opacity = 1;
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.vol-section').forEach(sec => {
+    const cs = Array.from(sec.querySelectorAll('.photo-cell'));
+    cs.forEach((c,i) => c.addEventListener('click', () => open(cs,i)));
+  });
+
+  document.getElementById('lb-close').onclick = close;
+  document.getElementById('lb-prev').onclick  = () => { cur=(cur-1+cells.length)%cells.length; show(); };
+  document.getElementById('lb-next').onclick  = () => { cur=(cur+1)%cells.length; show(); };
+  lb.addEventListener('click', e => { if(e.target===lb) close(); });
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft')  { cur=(cur-1+cells.length)%cells.length; show(); }
+    if(e.key==='ArrowRight') { cur=(cur+1)%cells.length; show(); }
+  });
+})();
+</script>
+</body>
+</html>
