@@ -1247,7 +1247,7 @@ ul{list-style:none}
   .hp-en-big{font-size:24px}
   .hp-year-red{font-size:32px}
   .brush-title{font-size:84px}
-  .endroll-collage{text-align:left;}
+  .endroll-collage{text-align:left !important;}
   .endroll-collage .er{font-size:16px}
   .endroll-collage .er.big1{font-size:20px}
   .endroll-collage .er.big2{font-size:18px}
