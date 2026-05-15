@@ -5,6 +5,32 @@
 (function () {
   'use strict';
 
+  /* ---------- 言語切り替え (JA / EN) ---------- */
+  (function() {
+    var saved = localStorage.getItem('rrs-lang') || 'ja';
+    document.documentElement.lang = saved;
+
+    function updateButtons(lang) {
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+    }
+
+    // Init buttons already in DOM
+    updateButtons(saved);
+
+    // Handle clicks (event delegation — works for dynamically inserted buttons too)
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.lang-btn');
+      if (!btn) return;
+      var lang = btn.dataset.lang;
+      if (!lang) return;
+      document.documentElement.lang = lang;
+      localStorage.setItem('rrs-lang', lang);
+      updateButtons(lang);
+    });
+  })();
+
   /* ---------- モバイルナビ開閉 ---------- */
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');

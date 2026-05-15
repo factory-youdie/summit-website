@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ウルフがドクロになった日～STAY FREE, BILLY!!!〜 ドクロマガジンVOL.1掲載 by YOU-DIE">
-<title>ウルフがドクロになった日～STAY FREE, BILLY!!! | ロッケンロー★サミット</title>
+<title>The Day the Wolf Became a Skull ～ STAY FREE, BILLY!!! | Rock'n'Roll Summit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Faster+One&display=swap" rel="stylesheet">
@@ -401,10 +401,15 @@ a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:#0a0908}
 ::-webkit-scrollbar-thumb{background:var(--red-deep)}
+  html[lang="en"] *[lang="ja"]{display:none!important}html[lang="ja"] *[lang="en"]{display:none!important}
 </style>
 </head>
 <body>
 
+<div class="lang-toggle" style="position:fixed;top:20px;right:20px;z-index:200;backdrop-filter:blur(4px);background:rgba(0,0,0,.6);border-color:rgba(255,255,255,.3);">
+  <button class="lang-btn active" data-lang="ja">JP</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
 <a class="back-btn" href="index.html#media">BACK TO MEDIA</a>
 
 <!-- ===== HERO ===== -->
@@ -418,8 +423,8 @@ a{color:inherit;text-decoration:none}
     <div class="drip"></div>
   </div>
   <div class="hero-inner">
-    <div class="mag-badge">ドクロマガジン VOL.1 掲載 ／ 森永博志 主宰</div>
-    <h1 class="article-title-ja">ウルフがドクロになった日</h1>
+    <div class="mag-badge"><span lang="ja">ドクロマガジン VOL.1 掲載 ／ 森永博志 主宰</span><span lang="en">Published in Skull Magazine VOL.1 / Edited by Hiroshi Morinaga</span></div>
+    <h1 class="article-title-ja"><span lang="ja">ウルフがドクロになった日</span><span lang="en">The Day the Wolf Became a Skull</span></h1>
     <p class="article-title-en">～STAY FREE, BILLY!!!〜</p>
   </div>
 
@@ -429,7 +434,7 @@ a{color:inherit;text-decoration:none}
 <article class="article-wrap">
   <div class="article-inner">
 
-    <p class="byline"><span>文 ／ YOU-DIE（ロッケンロー★サミット主催）</span></p>
+    <p class="byline"><span><span lang="ja">文 ／ YOU-DIE（ロッケンロー★サミット主催）</span><span lang="en">Written by YOU-DIE (Rock'n'Roll Summit organizer)</span></span></p>
 
     <div class="article-body">
 
@@ -441,10 +446,10 @@ a{color:inherit;text-decoration:none}
             loading="eager"
           >
         </div>
-        <p class="billy-photo-caption">BILLY ／ GUITAR WOLF</p>
+        <p class="billy-photo-caption">BILLY / GUITAR WOLF</p>
       </figure>
 
-      <p class="date-line">2005年3月31日朝7時</p>
+      <p class="date-line"><span lang="ja">2005年3月31日朝7時</span><span lang="en">March 31, 2005 — 7:00 AM</span></p>
 
       <p>携帯の着信、ギターウルフのマネージャー、ハッチャクからの電話だった。携帯には「ハッチャク」の名前が───なんか───イヤな予感がした───。</p>
 
@@ -610,10 +615,10 @@ a{color:inherit;text-decoration:none}
       <p style="text-align:center;font-family:'Special Elite',monospace;font-size:1.1em;color:var(--white);letter-spacing:.15em;">ロックにヨ★ロ★シ★ク！YOU-DIE!!!</p>
 
       <div class="manifesto">
-        <p>ロックンロールとは一生懸命やることです。</p>
-        <p>ロックンロールとは逃げないことです。</p>
-        <p>ロックンロールとは嘘をつかないことです。</p>
-        <p>ロックンロールとは力一杯やることです。</p>
+        <p><span lang="ja">ロックンロールとは一生懸命やることです。</span><span lang="en">Rock'n'Roll means giving it everything you've got.</span></p>
+        <p><span lang="ja">ロックンロールとは逃げないことです。</span><span lang="en">Rock'n'Roll means never running away.</span></p>
+        <p><span lang="ja">ロックンロールとは嘘をつかないことです。</span><span lang="en">Rock'n'Roll means never telling lies.</span></p>
+        <p><span lang="ja">ロックンロールとは力一杯やることです。</span><span lang="en">Rock'n'Roll means going all out.</span></p>
       </div>
 
     </div><!-- /.article-body -->
@@ -621,10 +626,19 @@ a{color:inherit;text-decoration:none}
 </article>
 
 <footer class="article-footer">
-  <p style="font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.15em;color:rgba(200,180,160,.4);margin-bottom:18px;">掲載誌：ドクロマガジン VOL.1 ／ 森永博志 主宰</p>
+  <p style="font-family:'Special Elite',monospace;font-size:11px;letter-spacing:.15em;color:rgba(200,180,160,.4);margin-bottom:18px;"><span lang="ja">掲載誌：ドクロマガジン VOL.1 ／ 森永博志 主宰</span><span lang="en">Published in: Skull Magazine VOL.1 / Edited by Hiroshi Morinaga</span></p>
   <a href="index.html#media">← BACK TO ROCK'N'ROLL SUMMIT</a>
 </footer>
 
+<script>
+(function(){
+  var s=localStorage.getItem("rrs-lang")||"ja";
+  document.documentElement.lang=s;
+  function upd(l){document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.toggle("active",b.dataset.lang===l);b.style.background=b.dataset.lang===l?"#c00":"transparent";b.style.color=b.dataset.lang===l?"#fff":"rgba(255,255,255,.55)";})}
+  upd(s);
+  document.addEventListener("click",function(e){var b=e.target.closest(".lang-btn");if(!b||!b.dataset.lang)return;var l=b.dataset.lang;document.documentElement.lang=l;localStorage.setItem("rrs-lang",l);upd(l);});
+})();
+</script>
 <script data-goatcounter="https://factory-youdie.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

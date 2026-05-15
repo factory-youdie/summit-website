@@ -1738,3 +1738,48 @@ ul{list-style:none}
   .pinhead-spread-thumbs{flex-direction:column;}
   .pinhead-page:first-child{border-right:none;border-bottom:2px solid rgba(0,0,0,.4);}
 }
+
+
+/* ===== LANGUAGE TOGGLE ===== */
+/* Show/hide spans based on html[lang] */
+html[lang="en"] *[lang="ja"] { display:none !important; }
+html[lang="ja"] *[lang="en"] { display:none !important; }
+
+/* Toggle button in header */
+.lang-toggle {
+  display:flex;
+  align-items:center;
+  gap:0;
+  margin-left:12px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:3px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.lang-btn {
+  background:transparent;
+  color:rgba(255,255,255,.55);
+  border:none;
+  cursor:pointer;
+  font-family:"Bungee","Special Elite",monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  padding:5px 9px;
+  transition:background .2s, color .2s;
+  line-height:1;
+}
+.lang-btn:hover {
+  background:rgba(255,255,255,.1);
+  color:#fff;
+}
+.lang-btn.active {
+  background:var(--red, #c00);
+  color:#fff;
+}
+.lang-btn + .lang-btn {
+  border-left:1px solid rgba(255,255,255,.2);
+}
+@media(max-width:700px){
+  .lang-toggle { margin-left:6px; }
+  .lang-btn { font-size:9px; padding:4px 7px; }
+}
