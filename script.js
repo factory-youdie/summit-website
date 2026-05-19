@@ -470,7 +470,7 @@
         Object.assign(d.style, {
           position: 'absolute', top: top + '%', left: left + '%',
           width: size + 'px', height: size + 'px',
-          backgroundImage: `url('img/splat_${img}.png')`,
+          backgroundImage: `url('img/common/splat_${img}.png')`,
           backgroundRepeat: 'no-repeat', backgroundSize: 'contain',
           pointerEvents: 'none', zIndex: '1',
           opacity: op, transform: `rotate(${rot}deg)`

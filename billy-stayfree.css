@@ -157,8 +157,8 @@ a{color:inherit;text-decoration:none}
   user-select:none;
   z-index:0;
 }
-.splat-a{ background-image:url('img/splat_a.png'); }
-.splat-b{ background-image:url('img/splat_b.png'); }
+.splat-a{ background-image:url('img/common/splat_a.png'); }
+.splat-b{ background-image:url('img/common/splat_b.png'); }
 
 /* ===== BILLY PHOTO (floated inside article) ===== */
 .article-photo-float{
