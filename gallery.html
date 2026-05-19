@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!-- deploy: 20260507 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ロッケンロー★サミット フォトギャラリー">
+<title>GALLERY | ロッケンローサミット</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Reggae+One&family=Stick&family=BIZ+UDPGothic:wght@700&family=Noto+Sans+JP:wght@700;900&family=Bungee&family=Bungee+Shade&family=Special+Elite&family=Rye&family=Nosifer&family=Faster+One&family=Anton&family=Rubik+Mono+One&family=Rubik+Glitch&family=Rampart+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- ===== SVG FILTERS (Distress / grunge text) ===== -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="3" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+    <filter id="rougher" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="3" seed="6"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+    </filter>
+    <!-- DISTRESS：文字を欠けさせる -->
+    <filter id="distress" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.1"/>
+      <feComposite in="SourceGraphic" in2="" operator="in" result="cut"/>
+      <feMerge>
+        <feMergeNode in="cut"/>
+      </feMerge>
+    </filter>
+    <!-- DISTRESS HARD：もっと欠ける -->
+    <filter id="distress-hard" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="3" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3"/>
+      <feComposite in="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- ねじれ + 欠け（Distress風） -->
+    <filter id="distress-warp" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.08" numOctaves="2" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="4" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.2"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+    <!-- 血しぶき用：細かいスプリンクル -->
+    <filter id="splat-noise">
+      <feTurbulence baseFrequency="2" numOctaves="2"/>
+      <feColorMatrix values="0 0 0 0 .75  0 0 0 0 .07  0 0 0 0 .07  0 0 0 1 -.5"/>
+    </filter>
+    <!-- DISTRESS BRUTAL：もっと激しく欠ける + わずかにねじれ -->
+    <filter id="distress-brutal" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.09" numOctaves="3" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="6" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="4" seed="23"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.5 3.0"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ===== GRAIN OVERLAY ===== -->
+<div class="grain"></div>
+<div class="splatter splatter-1"></div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <a class="logo-mark" href="index.html">
+    <img src="img/rrs_logo.png" alt="ロッケンローサミット" class="logo-mini">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">TOP</a>
+    <a href="news.html">NEWS</a>
+    <a href="event.html">EVENT</a>
+    <a href="history.html">HISTORY</a>
+    <a href="flyer.html">FLYER</a>
+    <a href="media.html">MEDIA</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="shop.html">SHOP</a>
+    <a href="sns.html">SNS</a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニュー">≡</button>
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="ja">JP</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
+</header>
+
+<section id="gallery" class="section section-gallery wall-brick">
+  <div class="section-header">
+    <h2 class="section-title-en grunge">GALLERY</h2>
+    <p class="section-tagline">PHOTO:<br>FUCKIN&apos; YAMANAKA<br>areUme?<br>OSIRICHAN</p>
+  </div>
+
+  <!-- Year tabs -->
+  <div class="gallery-tabs">
+    <button class="gallery-tab active" data-year="2025">2025</button>
+    <button class="gallery-tab" data-year="2024">2024</button>
+    <button class="gallery-tab" data-year="2023">2023</button>
+    <button class="gallery-tab" data-year="2022">2022</button>
+    <button class="gallery-tab" data-year="2021">2021</button>
+    <button class="gallery-tab" data-year="2019">2019</button>
+    <button class="gallery-tab" data-year="2010">2010</button>
+    <button class="gallery-tab" data-year="2006">2006</button>
+  </div>
+
+  <!-- 2025 -->
+  <div class="gallery-grid active" data-year="2025">
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0120.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0198.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0256.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0302.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0323.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0371.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0477.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0487.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0579.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0612.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0624.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0639.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0644.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0674.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A0766.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7875.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7881.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7912.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7984.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7988.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A7992.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8004.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8196.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8214.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8221.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8252.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8261.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8381.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8497.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8660.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8684.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8699.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8705.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8721.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8881.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8916.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8997.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A8999.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9155.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9245.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9261.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9262.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9299.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9343.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9544.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9550.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9636.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9785.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9826.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9871.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/309A9992.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A0246.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A0335.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A0376.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6104.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6150.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6155.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6163.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6186.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6294.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A6593.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A7766.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A7955.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A8681.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A8969.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A9187.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A9317.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A9620.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4F7A9968.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0002.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0044.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0387.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0548.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0564.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0598.jpg" alt="2025" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2025/4U1A0622.jpg" alt="2025" loading="lazy"></div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="gallery-grid" data-year="2024">
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6129-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6176.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6180-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6192-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6194-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6194.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6195-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6195.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6196.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6205-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6240-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6244-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6265-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6324-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6381-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6467-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6485-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6558-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6715-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6746-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6858-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6899.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6900.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6905 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6953 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6965 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6974.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A6977.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7000 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7004 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7046.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7061-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7101-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7107.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7117-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7143-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7196-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7202-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7215-Enhanced-NR-2.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7221-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7232-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7277-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7334-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7363-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7384-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7390-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7541.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7550-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7726-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7747-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7758-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7805-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7811-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7821-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7833-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7866-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7897-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7901-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A7913-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/309A8018-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7328.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7329.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7362.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7379.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7398.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7502.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7507.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7530.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7541.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7795.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7797.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7820.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7826.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7861.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7908.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A7996.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8223.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8273.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8293.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8398.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8437.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4F7A8858.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A0830.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1031.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1297.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1301.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1312.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1695 (1).jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1815.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1843.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1845.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A1960.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A2024.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A2063.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A2219.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A2378.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A2562.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A3337-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A3431-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/4U1A4032-Enhanced-NR.jpg" alt="2024" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2024/RRS2024広報用写真.jpg" alt="2024" loading="lazy"></div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="gallery-grid" data-year="2023">
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0104.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0212.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0532.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0572.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0587.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0655.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0872.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0876 (1).JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0931.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0967.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A0993.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1036.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1051.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1052.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1083.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1118.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1160.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A1301.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A8530.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A8566.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A9453.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A9626.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/309A9944.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4592.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4650.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4785.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4808.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4814.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A4928.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5101.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5114.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5134.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5221.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5285.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5296.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5411.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5437.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5452.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5481.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5497.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5556.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5664.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5674.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5712.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5746.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5831.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5854.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5959.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5981.JPG" alt="2023" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2023/4F7A5989.JPG" alt="2023" loading="lazy"></div>
+  </div>
+
+  <!-- 2022 -->
+  <div class="gallery-grid" data-year="2022">
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A6238.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A6321.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A7540.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A8210.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A8283.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A8472.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/0B4A8917.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/3Z7A7353.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/3Z7A7523.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/3Z7A7749.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/3Z7A7843.JPG" alt="2022" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2022/RRS2022_3.JPG" alt="2022" loading="lazy"></div>
+  </div>
+
+  <!-- 2021 -->
+  <div class="gallery-grid" data-year="2021">
+    <div class="gallery-cell"><img src="img/photo/photo/2021/11DSC_8630-Edit.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A4869.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A4876.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A4986.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A6671.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A6708.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/3Z7A9928.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/664A9924.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/A5D_0113.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0140.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0178.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0223.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0261.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0271.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0274.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0311.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0341.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0381.jpg" alt="2021" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2021/IMG_0839.jpg" alt="2021" loading="lazy"></div>
+  </div>
+
+  <!-- 2019 -->
+  <div class="gallery-grid" data-year="2019">
+    <div class="gallery-cell"><img src="img/photo/photo/2019/664A1682.JPG" alt="2019" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2019/664A1745.JPG" alt="2019" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2019/664A2874.JPG" alt="2019" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2019/664A5988.JPG" alt="2019" loading="lazy"></div>
+  </div>
+
+  <!-- 2010 -->
+  <div class="gallery-grid" data-year="2010">
+    <div class="gallery-cell"><img src="img/photo/photo/2010/km3.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/km4.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/ln1.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/ln2.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/ln3.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/nb3.jpg" alt="2010" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2010/os4.jpg" alt="2010" loading="lazy"></div>
+  </div>
+
+  <!-- 2006 -->
+  <div class="gallery-grid" data-year="2006">
+    <div class="gallery-cell"><img src="img/photo/photo/2006/summit_2.JPG" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ 5,6,7,8_s 057.jpg" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ Cedrics 056.jpg" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ GUITAR WOLF 270.jpg" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ GUITAR WOLF 502.jpg" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ MAD3 540.jpg" alt="2006" loading="lazy"></div>
+    <div class="gallery-cell"><img src="img/photo/photo/2006/コピー ～ ロッケンロー・サミット2006 084.jpg" alt="2006" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="img/rrs_logo.png" alt="ROCK'N'ROLL SUMMIT" class="footer-logo-img">
+      <p class="footer-copy">&copy; 2000–2026 ROCK&apos;N&apos;ROLL SUMMIT</p>
+    </div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/rocknroll_summit/?hl=ja" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-instagram',event:true})">INSTAGRAM</a>
+      <a href="https://x.com/ROCKNROLLSUMMIT" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-x',event:true})">X</a>
+      <a href="https://www.tiktok.com/@rocknroll.summit" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-tiktok',event:true})">TIKTOK</a>
+      <a href="https://www.youtube.com/@ROCKNROLLSUMMIT/videos" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-youtube',event:true})">YOUTUBE</a>
+      <a href="https://www.facebook.com/rocknrollsummit/?locale=ja_JP" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-facebook',event:true})">FACEBOOK</a>
+      <a href="shop.html" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-shop',event:true})">SHOP</a>
+    </div>
+  </div>
+</footer>
+
+<div id="hwp-lightbox" aria-modal="true" role="dialog" aria-label="写真拡大表示">
+  <div id="hwp-lightbox-bg"></div>
+  <button id="hwp-lightbox-prev" aria-label="前の写真">&#10094;</button>
+  <div id="hwp-lightbox-img-wrap">
+    <img id="hwp-lightbox-img" src="" alt="photo">
+  </div>
+  <button id="hwp-lightbox-next" aria-label="次の写真">&#10095;</button>
+  <button id="hwp-lightbox-close" aria-label="閉じる">&#10005;</button>
+</div>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://factory-youdie.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

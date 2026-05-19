@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- deploy: 20260507 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ロッケンロー★サミット全開催履歴 2000–2025">
+<title>HISTORY | ロッケンローサミット</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Reggae+One&family=Stick&family=BIZ+UDPGothic:wght@700&family=Noto+Sans+JP:wght@700;900&family=Bungee&family=Bungee+Shade&family=Special+Elite&family=Rye&family=Nosifer&family=Faster+One&family=Anton&family=Rubik+Mono+One&family=Rubik+Glitch&family=Rampart+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- ===== SVG FILTERS (Distress / grunge text) ===== -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="3" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+    <filter id="rougher" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="3" seed="6"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+    </filter>
+    <!-- DISTRESS：文字を欠けさせる -->
+    <filter id="distress" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.1"/>
+      <feComposite in="SourceGraphic" in2="" operator="in" result="cut"/>
+      <feMerge>
+        <feMergeNode in="cut"/>
+      </feMerge>
+    </filter>
+    <!-- DISTRESS HARD：もっと欠ける -->
+    <filter id="distress-hard" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="3" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3"/>
+      <feComposite in="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- ねじれ + 欠け（Distress風） -->
+    <filter id="distress-warp" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.08" numOctaves="2" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="4" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.2"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+    <!-- 血しぶき用：細かいスプリンクル -->
+    <filter id="splat-noise">
+      <feTurbulence baseFrequency="2" numOctaves="2"/>
+      <feColorMatrix values="0 0 0 0 .75  0 0 0 0 .07  0 0 0 0 .07  0 0 0 1 -.5"/>
+    </filter>
+    <!-- DISTRESS BRUTAL：もっと激しく欠ける + わずかにねじれ -->
+    <filter id="distress-brutal" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.09" numOctaves="3" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="6" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="4" seed="23"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.5 3.0"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ===== GRAIN OVERLAY ===== -->
+<div class="grain"></div>
+<div class="splatter splatter-1"></div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <a class="logo-mark" href="index.html">
+    <img src="img/rrs_logo.png" alt="ロッケンローサミット" class="logo-mini">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">TOP</a>
+    <a href="news.html">NEWS</a>
+    <a href="event.html">EVENT</a>
+    <a href="history.html">HISTORY</a>
+    <a href="flyer.html">FLYER</a>
+    <a href="media.html">MEDIA</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="shop.html">SHOP</a>
+    <a href="sns.html">SNS</a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニュー">≡</button>
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="ja">JP</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
+</header>
+
+<section id="history" class="section section-history wall-brick">
+  <div class="section-header">
+    <h2 class="section-title-en grunge">HISTORY</h2>
+    <p class="history-tagline">BORN 2000</p>
+  </div>
+
+  <!-- HISTORY 散らし写真（左右余白）-->
+  <div class="history-wall-photos">
+    <div class="hwp hwp-l" style="top:4%;left:0.5%;transform:rotate(-5deg)"><img src="img/photo/photo/2025/309A0256.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:2%;right:0.5%;transform:rotate(4deg)"><img src="img/photo/photo/2025/309A0302.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:10%;left:1%;transform:rotate(6deg)"><img src="img/photo/photo/2025/309A0323.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:11%;right:0%;transform:rotate(-7deg)"><img src="img/photo/photo/2025/309A0371.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:18%;left:0%;transform:rotate(-4deg)"><img src="img/photo/photo/2025/309A0477.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:20%;right:1%;transform:rotate(5deg)"><img src="img/photo/photo/2025/309A0487.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:27%;left:0.5%;transform:rotate(7deg)"><img src="img/photo/photo/2025/309A0579.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:29%;right:0%;transform:rotate(-5deg)"><img src="img/photo/photo/2025/309A0612.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:36%;left:1%;transform:rotate(-6deg)"><img src="img/photo/photo/2025/309A0624.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:38%;right:0.5%;transform:rotate(6deg)"><img src="img/photo/photo/2025/309A0639.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:45%;left:0%;transform:rotate(4deg)"><img src="img/photo/photo/2025/309A0644.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:47%;right:1%;transform:rotate(-4deg)"><img src="img/photo/photo/2025/309A0674.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:54%;left:0.5%;transform:rotate(-7deg)"><img src="img/photo/photo/2025/309A0766.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:56%;right:0%;transform:rotate(5deg)"><img src="img/photo/photo/2025/309A7875.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:63%;left:1%;transform:rotate(5deg)"><img src="img/photo/photo/2025/309A7881.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:65%;right:0.5%;transform:rotate(-6deg)"><img src="img/photo/photo/2025/309A7912.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:72%;left:0%;transform:rotate(-3deg)"><img src="img/photo/photo/2025/309A7984.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:74%;right:1%;transform:rotate(7deg)"><img src="img/photo/photo/2025/309A7988.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:80%;left:0.5%;transform:rotate(6deg)"><img src="img/photo/photo/2024/309A6129-Enhanced-NR.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:82%;right:0%;transform:rotate(-5deg)"><img src="img/photo/photo/2024/309A6176.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:87%;left:1%;transform:rotate(-4deg)"><img src="img/photo/photo/2024/309A6180-Enhanced-NR.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:89%;right:0.5%;transform:rotate(4deg)"><img src="img/photo/photo/2024/309A6192-Enhanced-NR.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-l" style="top:93%;left:0%;transform:rotate(7deg)"><img src="img/photo/photo/2024/309A6194-Enhanced-NR.jpg" alt="photo" loading="lazy"></div>
+    <div class="hwp hwp-r" style="top:95%;right:1%;transform:rotate(-6deg)"><img src="img/photo/photo/2024/309A6194.jpg" alt="photo" loading="lazy"></div>
+  </div>
+
+  <div class="history-timeline">
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2025</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2025〜澁谷外道六弦決戦〜</span><span lang="en">Rock'n'Roll Summit 2025 — Shibuya Heretical Six-String Showdown</span></h3>
+      <p class="history-meta">2025.8.30 ＠Spotify O-WEST</p>
+      <ul class="lineup">
+        <li>外道</li>
+        <li>ギターウルフ</li><li>MAD3</li><li>THE NEATBEATS</li>
+        <li>ザ50回転ズ</li><li>JOHNNY PANDORA</li><li>The Biscats</li>
+        <li>暴動クラブ</li><li>YAPOOL</li><li>絆創攻</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2024</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2024 〜鳥になった男たちへ〜</span><span lang="en">Rock'n'Roll Summit 2024 — To the Men Who Became Birds</span></h3>
+      <p class="history-meta">2024.8.31 ＠Spotify O-WEST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>SA</li><li>MAD3</li><li>THE NEATBEATS</li>
+        <li>KING BROTHERS</li><li>ザ50回転ズ</li><li>JOHNNY PANDORA</li>
+        <li>THE NUGGETS</li><li>The Biscats</li><li>絆創攻</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2023</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2023 〜澁谷横道祭〜</span><span lang="en">Rock'n'Roll Summit 2023 — Shibuya Side-Street Festival</span></h3>
+      <p class="history-meta">2023.8.27 ＠Spotify O-WEST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>MAD3</li><li>THE NEATBEATS</li>
+        <li>JOHNNY PANDORA</li><li>THE NUGGETS</li><li>The Biscats</li>
+        <li>YAPOOL</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2022</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー・サミット2022 〜路拳狼救出大作戦！〜</span><span lang="en">Rock'n'Roll Summit 2022 — Operation Rescue Street Wolf!</span></h3>
+      <p class="history-meta">2022.8.27 ＠Spotify O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ニューロティカ</li><li>SA</li><li>MAD3</li>
+        <li>THE NEATBEATS</li><li>KING BROTHERS</li><li>ザ50回転ズ</li>
+        <li>JOHNNY PANDORA</li><li>THE NUGGETS</li><li>The Biscats</li>
+        <li>東京サイコパス</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2021</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2021 〜令和下剋上の乱！〜</span><span lang="en">Rock'n'Roll Summit 2021 — The Reiwa Era Uprising!</span></h3>
+      <p class="history-meta">2021.8.28 ＠Spotify O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>MAD3</li><li>THE NEATBEATS</li>
+        <li>ザ50回転ズ</li><li>KING BROTHERS</li><li>JOHNNY PANDORA</li>
+        <li>THE THROTTLE</li><li>THE NUGGETS</li><li>The Biscats</li>
+      </ul>
+      <p class="dj">DJ DADDY-NOV.</p>
+    </article>
+
+    <article class="history-item history-cancelled">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2020</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2020 〜道玄坂頂上決戦！〜</span><span lang="en">Rock'n'Roll Summit 2020 — Dogenzaka Summit Showdown!</span></h3>
+      <p class="history-meta">2020.8.29 ＠Spotify O-EAST</p>
+      <p class="cancelled-note"><span lang="ja">CANCELLED ／ 新型コロナウイルスの影響で中止</span><span lang="en">CANCELLED / Due to COVID-19</span></p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li><li>MAD3</li>
+        <li>THE NEATBEATS</li><li>ザ50回転ズ</li><li>KING BROTHERS</li>
+        <li>GEZAN</li><li>THE NUGGETS</li><li>MUTANT MONSTER</li>
+        <li>TOM BOYS</li><li>The Biscats</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2019</div>
+      <h3 class="history-title"><span lang="ja">ロッケンローサミット2019 〜20回目の頂上決戦！〜</span><span lang="en">Rock'n'Roll Summit 2019 — The 20th Summit Showdown!</span></h3>
+      <p class="history-meta">2019.8.31 ＠TSUTAYA O-EAST</p>
+      <ul class="lineup">
+        <li>Shinya Oe And Mothers Sunshine</li>
+        <li>ギターウルフ</li><li>ニューロティカ</li><li>MAD3</li>
+        <li>勝手にしやがれ</li><li>THE NEATBEATS</li><li>ザ50回転ズ</li>
+        <li>THE NUGGETS</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2018</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2018 〜道玄坂頂上決戦〜</span><span lang="en">Rock'n'Roll Summit 2018 — Dogenzaka Summit Showdown</span></h3>
+      <p class="history-meta">2018.9.23 ＠TSUTAYA O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li>
+        <li>LTD EXHAUST II</li>
+        <li>LAUGHIN&apos; NOSE</li><li>ザ・マックショウ</li><li>MAD3</li>
+        <li>THE NEATBEATS</li><li>KING BROTHERS</li><li>ザ50回転ズ</li>
+        <li>画鋲</li><li>GEZAN</li><li>THE NUGGETS</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2017</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2017 〜道玄坂邪道六弦頂上決戦〜</span><span lang="en">Rock'n'Roll Summit 2017 — Dogenzaka Outlaw Six-String Showdown</span></h3>
+      <p class="history-meta">2017.9.23 ＠TSUTAYA O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>THE PRIVATES</li><li>ザ・マックショウ</li>
+        <li>SA</li><li>THE NEATBEATS</li>
+        <li>MORE THE MAN</li>
+        <li>ザ50回転ズ</li><li>Bloodest Saxophone</li>
+        <li>キノコホテル</li><li>MUTANT MONSTER</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2016</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2016 〜道玄坂邪道六弦頂上決戦〜</span><span lang="en">Rock'n'Roll Summit 2016 — Dogenzaka Outlaw Six-String Showdown</span></h3>
+      <p class="history-meta">2016.9.24 ＠TSUTAYA O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>菊 ft.鮎川誠 シーナ＆ロケッツ</li>
+        <li>ニューロティカ</li><li>ザ・マックショウ</li><li>THE NEATBEATS</li>
+        <li>ザ50回転ズ</li><li>DMBQ</li><li>Bloodest Saxophone</li>
+        <li>キノコホテル</li><li>最終少女ひかさ</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2015</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2015 〜道玄坂電撃作戦〜</span><span lang="en">Rock'n'Roll Summit 2015 — Dogenzaka Lightning Strike</span></h3>
+      <p class="history-meta">2015.9.26 ＠TSUTAYA O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li><li>SA</li>
+        <li>THE NEATBEATS</li><li>KING BROTHERS</li><li>RADIOTS</li>
+        <li>ザ50回転ズ</li><li>a flood of circle</li>
+        <li>SUNDAYS</li><li>下山(GEZAN)</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2014</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2014 〜渋谷死闘編〜</span><span lang="en">Rock'n'Roll Summit 2014 — Shibuya Death Match</span></h3>
+      <p class="history-meta">2014.9.20 ＠SHIBUYA O-EAST</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li><li>SA</li>
+        <li>THE NEATBEATS</li><li>KING BROTHERS</li><li>ザ50回転ズ</li>
+        <li>a flood of circle</li><li>キノコホテル</li>
+        <li>go！go！vanillas</li><li>THE INRUN PUBLICS</li>
+        <li>テクマクマヤーンズ</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2013</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2013 〜渋谷頂上決戦〜</span><span lang="en">Rock'n'Roll Summit 2013 — Shibuya Summit Showdown</span></h3>
+      <p class="history-meta">2013.9.23 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li><li>THE NEATBEATS</li>
+        <li>RADIOTS</li><li>ザ50回転ズ</li><li>N&apos;夙川BOYS</li>
+        <li>THE BOHEMIANS</li><li>Droog</li><li>爆弾ジョニー</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2012</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2012 〜渋谷頂上決戦〜</span><span lang="en">Rock'n'Roll Summit 2012 — Shibuya Summit Showdown</span></h3>
+      <p class="history-meta">2012.9.8 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li><li>THE NEATBEATS</li>
+        <li>Radios</li><li>ザ50回転ズ</li><li>THE CHERRY COKE$</li>
+        <li>キノコホテル</li><li>THE BOHEMIANS</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2011</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー・サミット2011 〜渋谷死闘編〜</span><span lang="en">Rock'n'Roll Summit 2011 — Shibuya Death Match</span></h3>
+      <p class="history-meta">2011.9.10 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>ザ・マックショウ</li>
+        <li>武藤昭平 with ウエノコウジ</li><li>SA</li><li>THE NEATBEATS</li>
+        <li>KING BROTHERS</li><li>Bloodest Saxophone</li>
+        <li>黒猫チェルシー</li><li>女王蜂</li><li>キノコホテル</li>
+        <li>撃鉄</li><li>ボヘミアンズ</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2010</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2010 〜渋谷死闘編〜</span><span lang="en">Rock'n'Roll Summit 2010 — Shibuya Death Match</span></h3>
+      <p class="history-meta">2010.8.29 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>SHEENA &amp; THE ROKKETS</li><li>ギターウルフ</li><li>LAUGHIN&apos; NOSE</li>
+        <li>SA</li><li>THE NEATBEATS</li><li>KING BROTHERS</li>
+        <li>RADIOTS</li><li>ザ50回転ズ</li><li>OKANTOS</li>
+      </ul>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2009</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2009 〜渋谷頂上決戦！〜</span><span lang="en">Rock'n'Roll Summit 2009 — Shibuya Summit Showdown!</span></h3>
+      <p class="history-meta">2009.9.22 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>LAUGHIN&apos; NOSE</li><li>怒髪天</li>
+        <li>THE NEATBEATS</li><li>毛皮のマリーズ</li><li>THE BAWDIES</li>
+        <li>ザ50回転ズ</li><li>THE BACILLUS BRAINS</li>
+        <li>KING BROTHERS</li><li>Bloodest Saxophone</li>
+        <li>LAZYgunsBRISKY</li><li>Veni Vidi Vicious</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2008</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2008 〜渋谷頂上決戦！〜</span><span lang="en">Rock'n'Roll Summit 2008 — Shibuya Summit Showdown!</span></h3>
+      <p class="history-meta">2008.9.20 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>The 5,6,7,8&apos;s</li><li>THE MAD SPECIALS</li><li>THE NEATBEATS</li>
+        <li>KING BROTHERS</li><li>THE BACILLUS BRAINS（日本脳炎）</li>
+        <li>ROBIN</li><li>Bloodest Saxophone</li><li>ミドリ</li>
+        <li>ザ50回転ズ</li><li>THE BAWDIES</li><li>毛皮のマリーズ</li>
+        <li>JAPAN-狂撃-SPECIAL</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2007</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2007 〜渋谷頂上決戦！〜</h3>
+      <p class="history-meta">2007.8.26 ＠SHIBUYA-AX</p>
+      <ul class="lineup">
+        <li>ギターウルフ</li><li>シーナ＆ロケッツ</li><li>ラフィンノーズ</li>
+        <li>MAD3</li><li>THE NEATBEATS</li><li>8otto</li>
+        <li>JACKIE &amp; THE CEDRICS</li><li>Bloodest Saxophone</li>
+        <li>THE BAWDIES</li><li>ミドリ</li><li>TEGWON</li>
+        <li>ROMANES</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2006</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2006</h3>
+      <p class="history-meta">2006.8.29 ＠KAWASAKI CLUB CITTA&apos;</p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>5,6,7,8&apos;s</li><li>MAD3</li>
+        <li>THE NEATBEATS</li><li>JACKIE &amp; THE CEDRICS</li>
+        <li>THE MACSHOW</li><li>ROBIN</li><li>Bloodest Saxophone</li>
+        <li>THE MINESOTA VOO DOO MEN</li><li>ザ50回転ズ</li>
+        <li>six</li><li>THE BAWDIES</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2005</div>
+      <h3 class="history-title"><span lang="ja">ロッケンロー★サミット2005 - We Love Billy ! Stay Free ! ! -</span><span lang="en">Rock'n'Roll Summit 2005 — We Love Billy! Stay Free!!</span></h3>
+      <p class="history-meta">2005.8.17 ＠Zepp Tokyo</p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>THE 5.6.7.8&apos;s</li><li>MAD3</li>
+        <li>JACKIE &amp; THE CEDRICS</li><li>THE NEATBEATS</li>
+        <li>KING BROTHERS</li><li>惑星</li><li>Radio Caroline</li>
+        <li>ROBIN</li><li>THE THUNDER ROADS</li><li>JAIL GUITAR DOORS</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2004</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2004</h3>
+      <p class="history-meta">2004.8.21 ＠<span lang="ja">お台場冒険王・冒険ステージ</span><span lang="en">Odaiba Boken-oh Adventure Stage</span></p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>LAUGHIN&apos; NOSE</li><li>SA</li><li>MAD3</li>
+        <li>SORROW</li><li>ROBIN</li><li>JOE ALCOHOLGROUP</li>
+        <li>54NUDE HONEYS</li>
+        <li>AKIRA ACCEL &amp; THE THUNDER ROADS</li>
+        <li>NINE</li><li>THE BEATLE CRUSHER</li>
+        <li>インビシブルマンズデスベット</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2003</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2003 〜tribute to ELVIS〜</h3>
+      <p class="history-meta">2003.8.24 ＠<span lang="ja">お台場冒険王・冒険ステージ</span><span lang="en">Odaiba Boken-oh Adventure Stage</span></p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>SA</li><li>THE NEATBEATS</li>
+        <li>54NUDE HONEYS</li><li>RETRO GRETION</li><li>ROBIN</li>
+        <li>NINE</li><li>THE PEPPERMINT JAM</li>
+        <li>THE BEATLE CRUSHER</li><li>ELVIS JUNKIES</li>
+      </ul>
+      <p class="dj">DJ DADDY-O-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2002</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2002 〜Thank you, D.D. Kiss the sky！〜</h3>
+      <p class="history-meta">2002.8.25 ＠<span lang="ja">フジテレビ7F屋上庭園</span><span lang="en">Fuji TV 7F Rooftop Garden</span></p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>ラフィンノーズ</li><li>MAD3</li>
+        <li>THE HONG KONG KNIFE</li><li>NEATBEATS</li>
+        <li>RETRO GRETION</li><li>BATTLE OF NINJAMANS</li>
+        <li>ROBIN</li><li>SLICK CAT JESUS</li><li>NINE</li>
+        <li>万力</li>
+      </ul>
+      <p class="dj">DJ DADDY-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2001</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 2001 〜kiss the sky！〜</h3>
+      <p class="history-meta">2001.8.26 ＠<span lang="ja">フジテレビ7F屋上庭園</span><span lang="en">Fuji TV 7F Rooftop Garden</span></p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>3DAM</li><li>THE HONG KONG KNIFE</li>
+        <li>GYOGUN REND&apos;S</li><li>ACCEL4</li><li>THE NEATBEATS</li>
+        <li>RETRO GRETION</li><li>万力</li><li>HAVE NOT&apos;S</li>
+        <li>荒馬車ブレイメン</li>
+      </ul>
+      <p class="dj">DJ DADDY-NOV.</p>
+    </article>
+
+    <article class="history-item">
+      <span class="mt mt-tl"></span><span class="mt mt-tr"></span>
+      <div class="history-year">2000</div>
+      <h3 class="history-title">ROCK&apos;N&apos;ROLL SUMMIT 〜kiss the sky！〜</h3>
+      <p class="history-meta">2000.8.30 ＠<span lang="ja">フジテレビ7F屋上庭園</span><span lang="en">Fuji TV 7F Rooftop Garden</span></p>
+      <ul class="lineup">
+        <li>GUITAR WOLF</li><li>MAD3</li><li>THE HONG KONG KNIFE</li>
+        <li>JET BOYS</li><li>Jackie &amp; Enocky</li><li>3 KOOL KATS</li>
+        <li>ACCEL4</li><li>54 NUDE HONEYS</li><li>JIG HEAD</li>
+      </ul>
+      <p class="dj">DJ DADDY-NOV.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="img/rrs_logo.png" alt="ROCK'N'ROLL SUMMIT" class="footer-logo-img">
+      <p class="footer-copy">&copy; 2000–2026 ROCK&apos;N&apos;ROLL SUMMIT</p>
+    </div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/rocknroll_summit/?hl=ja" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-instagram',event:true})">INSTAGRAM</a>
+      <a href="https://x.com/ROCKNROLLSUMMIT" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-x',event:true})">X</a>
+      <a href="https://www.tiktok.com/@rocknroll.summit" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-tiktok',event:true})">TIKTOK</a>
+      <a href="https://www.youtube.com/@ROCKNROLLSUMMIT/videos" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-youtube',event:true})">YOUTUBE</a>
+      <a href="https://www.facebook.com/rocknrollsummit/?locale=ja_JP" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-facebook',event:true})">FACEBOOK</a>
+      <a href="shop.html" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-shop',event:true})">SHOP</a>
+    </div>
+  </div>
+</footer>
+
+<div id="hwp-lightbox" aria-modal="true" role="dialog" aria-label="写真拡大表示">
+  <div id="hwp-lightbox-bg"></div>
+  <button id="hwp-lightbox-prev" aria-label="前の写真">&#10094;</button>
+  <div id="hwp-lightbox-img-wrap">
+    <img id="hwp-lightbox-img" src="" alt="photo">
+  </div>
+  <button id="hwp-lightbox-next" aria-label="次の写真">&#10095;</button>
+  <button id="hwp-lightbox-close" aria-label="閉じる">&#10005;</button>
+</div>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://factory-youdie.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -28,6 +28,9 @@
       document.documentElement.lang = lang;
       localStorage.setItem('rrs-lang', lang);
       updateButtons(lang);
+      if (window.goatcounter && window.goatcounter.count) {
+        window.goatcounter.count({ path: 'lang-switch-' + lang, event: true });
+      }
     });
   })();
 
@@ -604,4 +607,46 @@
       }
     });
   }
+})();
+
+/* =========================================================
+   HARD BOP — フォトギャラリー ライトボックス
+   hard-bop.html 専用。他ページでは #lb が存在しないため無害。
+   ========================================================= */
+(function(){
+  const lb  = document.getElementById('lb');
+  if (!lb) return;
+  const img = document.getElementById('lb-img');
+  let cells = [], cur = 0;
+
+  function open(all, i){
+    cells = all; cur = i; show();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function show(){
+    img.style.opacity = 0;
+    img.src = cells[cur].dataset.full;
+    img.onload = () => img.style.opacity = 1;
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.vol-section').forEach(sec => {
+    const cs = Array.from(sec.querySelectorAll('.photo-cell'));
+    cs.forEach((c,i) => c.addEventListener('click', () => open(cs,i)));
+  });
+
+  document.getElementById('lb-close').onclick = close;
+  document.getElementById('lb-prev').onclick  = () => { cur=(cur-1+cells.length)%cells.length; show(); };
+  document.getElementById('lb-next').onclick  = () => { cur=(cur+1)%cells.length; show(); };
+  lb.addEventListener('click', e => { if(e.target===lb) close(); });
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft')  { cur=(cur-1+cells.length)%cells.length; show(); }
+    if(e.key==='ArrowRight') { cur=(cur+1)%cells.length; show(); }
+  });
 })();

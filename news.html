@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- deploy: 20260507 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ロッケンロー★サミット最新情報">
+<title>NEWS | ロッケンローサミット</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&family=Reggae+One&family=Stick&family=BIZ+UDPGothic:wght@700&family=Noto+Sans+JP:wght@700;900&family=Bungee&family=Bungee+Shade&family=Special+Elite&family=Rye&family=Nosifer&family=Faster+One&family=Anton&family=Rubik+Mono+One&family=Rubik+Glitch&family=Rampart+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- ===== SVG FILTERS (Distress / grunge text) ===== -->
+<svg class="svg-defs" aria-hidden="true">
+  <defs>
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="3" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="3"/>
+    </filter>
+    <filter id="rougher" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="3" seed="6"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+    </filter>
+    <!-- DISTRESS：文字を欠けさせる -->
+    <filter id="distress" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.1"/>
+      <feComposite in="SourceGraphic" in2="" operator="in" result="cut"/>
+      <feMerge>
+        <feMergeNode in="cut"/>
+      </feMerge>
+    </filter>
+    <!-- DISTRESS HARD：もっと欠ける -->
+    <filter id="distress-hard" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="3" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.3"/>
+      <feComposite in="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- ねじれ + 欠け（Distress風） -->
+    <filter id="distress-warp" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.08" numOctaves="2" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="4" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.2"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+    <!-- 血しぶき用：細かいスプリンクル -->
+    <filter id="splat-noise">
+      <feTurbulence baseFrequency="2" numOctaves="2"/>
+      <feColorMatrix values="0 0 0 0 .75  0 0 0 0 .07  0 0 0 0 .07  0 0 0 1 -.5"/>
+    </filter>
+    <!-- DISTRESS BRUTAL：もっと激しく欠ける + わずかにねじれ -->
+    <filter id="distress-brutal" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.09" numOctaves="3" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="6" result="warp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="3.2" numOctaves="4" seed="23"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.5 3.0"/>
+      <feComposite in="warp" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ===== GRAIN OVERLAY ===== -->
+<div class="grain"></div>
+<div class="splatter splatter-1"></div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header class="site-header">
+  <a class="logo-mark" href="index.html">
+    <img src="img/rrs_logo.png" alt="ロッケンローサミット" class="logo-mini">
+  </a>
+  <nav class="site-nav">
+    <a href="index.html">TOP</a>
+    <a href="news.html">NEWS</a>
+    <a href="event.html">EVENT</a>
+    <a href="history.html">HISTORY</a>
+    <a href="flyer.html">FLYER</a>
+    <a href="media.html">MEDIA</a>
+    <a href="gallery.html">GALLERY</a>
+    <a href="shop.html">SHOP</a>
+    <a href="sns.html">SNS</a>
+  </nav>
+  <button class="nav-toggle" aria-label="メニュー">≡</button>
+<div class="lang-toggle">
+  <button class="lang-btn active" data-lang="ja">JP</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+</div>
+</header>
+
+<section id="news" class="section section-news wall-brick">
+  <div class="section-header">
+    <h2 class="section-title-en grunge red-glow">NEWS</h2>
+    <p class="section-tagline">BAD NEWS TRAVELS FAST!</p>
+  </div>
+
+    <!-- scatter photos -->
+  <div class="wall-photo wall-scatter" data-year="2024" style="top:40px;right:4%;transform:rotate(6deg);pointer-events:auto;">
+    <img src="img/photo/photo/2025/309A0120.jpg" alt="2024">
+  </div>
+  <div class="wall-photo wall-scatter" data-year="2023" style="bottom:20px;left:3%;transform:rotate(-4deg);pointer-events:auto;">
+    <img src="img/photo/photo/2025/309A0198.jpg" alt="2023">
+  </div>
+  <div class="news-compact-list">
+    <article class="news-compact-item">
+      <span class="news-compact-date">2026.05.15</span>
+      <span class="news-compact-text">
+        <span lang="ja">
+          <strong>ロッケンロー★サミット2026 ～六弦仁義、世代抗争～</strong><br>
+          8月29日（土）Spotify O-WEST<br>
+          11:30 OPEN / 12:00 START<br>
+          <br>
+          ギターウルフ / THE NEATBEATS / ザ50回転ズ / JOHNNY PANDORA / The Biscats / and more…<br>
+          DJ：DADDY-O-NOV.<br>
+          <br>
+          前売券 ¥6,900 ／ 当日券 ¥7,900<br>
+          CONTACT：<a href="https://sogotokyo.com/live_information/detail/2918" target="_blank" rel="noopener">SOGO TOKYO</a><br>
+          Produced by FACTORY
+        </span>
+        <span lang="en">
+          <strong>Rock'n'Roll Summit 2026 — Six-String Honor, Generation War</strong><br>
+          Saturday, August 29 @ Spotify O-WEST<br>
+          OPEN 11:30 / START 12:00<br>
+          <br>
+          GUITAR WOLF / THE NEATBEATS / ZA 50 KAITEN-ZU / JOHNNY PANDORA / The Biscats / and more…<br>
+          DJ: DADDY-O-NOV.<br>
+          <br>
+          Advance ¥6,900 ／ Door ¥7,900<br>
+          CONTACT: <a href="https://sogotokyo.com/live_information/detail/2918" target="_blank" rel="noopener">SOGO TOKYO</a><br>
+          Produced by FACTORY
+        </span>
+      </span>
+    </article>
+    <article class="news-compact-item">
+      <span class="news-compact-date">2026.05.09</span>
+      <span class="news-compact-text"><span lang="ja">ロッケンロー★サミット2026 8月29日（土）Spotify O-WESTにて開催決定！</span><span lang="en">Rock'n'Roll Summit 2026 confirmed! Saturday, August 29 at Spotify O-WEST!</span></span>
+    </article>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="img/rrs_logo.png" alt="ROCK'N'ROLL SUMMIT" class="footer-logo-img">
+      <p class="footer-copy">&copy; 2000–2026 ROCK&apos;N&apos;ROLL SUMMIT</p>
+    </div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/rocknroll_summit/?hl=ja" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-instagram',event:true})">INSTAGRAM</a>
+      <a href="https://x.com/ROCKNROLLSUMMIT" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-x',event:true})">X</a>
+      <a href="https://www.tiktok.com/@rocknroll.summit" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-tiktok',event:true})">TIKTOK</a>
+      <a href="https://www.youtube.com/@ROCKNROLLSUMMIT/videos" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-youtube',event:true})">YOUTUBE</a>
+      <a href="https://www.facebook.com/rocknrollsummit/?locale=ja_JP" target="_blank" rel="noopener" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-facebook',event:true})">FACEBOOK</a>
+      <a href="shop.html" onclick="window.goatcounter&&window.goatcounter.count({path:'click-footer-shop',event:true})">SHOP</a>
+    </div>
+  </div>
+</footer>
+
+<div id="hwp-lightbox" aria-modal="true" role="dialog" aria-label="写真拡大表示">
+  <div id="hwp-lightbox-bg"></div>
+  <button id="hwp-lightbox-prev" aria-label="前の写真">&#10094;</button>
+  <div id="hwp-lightbox-img-wrap">
+    <img id="hwp-lightbox-img" src="" alt="photo">
+  </div>
+  <button id="hwp-lightbox-next" aria-label="次の写真">&#10095;</button>
+  <button id="hwp-lightbox-close" aria-label="閉じる">&#10005;</button>
+</div>
+
+<script src="script.js"></script>
+<script data-goatcounter="https://factory-youdie.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
