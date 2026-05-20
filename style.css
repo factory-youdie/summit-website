@@ -737,6 +737,23 @@ ul{list-style:none}
   color:var(--white);
   line-height:1.5;
 }
+.news-event-link{
+  display:inline-block;
+  color:var(--red);
+  font-family:"Special Elite","Rubik Mono One",monospace;
+  font-size:13px;letter-spacing:.1em;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  border:1px solid var(--red);
+  padding:1px 7px;
+  border-radius:2px;
+  transition:background .2s,color .2s;
+}
+.news-event-link:hover{
+  background:var(--red);
+  color:#fff;
+  text-decoration:none;
+}
 
 /* ===== HISTORY ===== */
 .history-timeline{
