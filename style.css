@@ -755,6 +755,24 @@ ul{list-style:none}
   text-decoration:none;
 }
 
+/* イベントビジュアル（NEWS内） */
+.news-compact-item.has-visual{align-items:flex-start;}
+.news-event-visual{margin:0 0 12px;}
+.news-event-visual img{
+  width:100%;max-width:300px;display:block;
+}
+
+/* イベントビジュアル（EVENT内） */
+.event-visual-wrap{margin-bottom:16px;}
+.event-visual-wrap img{width:100%;max-width:100%;display:block;}
+
+/* EVENTページ詳細テキスト */
+.history-item-detail{
+  font-family:"Noto Sans JP","BIZ UDPGothic",sans-serif;
+  font-weight:700;font-size:13px;line-height:1.6;
+  color:var(--bone);margin-top:10px;
+}
+
 /* ===== HISTORY ===== */
 .history-timeline{
   max-width:1200px;margin:0 auto;
