@@ -766,6 +766,108 @@ ul{list-style:none}
 .event-visual-wrap{margin-bottom:16px;}
 .event-visual-wrap img{width:100%;max-width:100%;display:block;}
 
+/* === ACT PHOTOS — 写真撮りきり・壁貼りスタイル === */
+.act-photos{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px 14px;
+  justify-content:center;
+  margin:24px 0 8px;
+  padding:14px 4px;
+}
+.act-photo-card{
+  position:relative;
+  background:transparent;
+  padding:0;
+  box-shadow:3px 6px 18px rgba(0,0,0,.7);
+  transform:rotate(var(--r,0deg));
+  transform-origin:center 20%;
+  flex-shrink:0;
+  transition:transform .25s,box-shadow .25s;
+  z-index:1;
+}
+/* セロハンテープ */
+.act-photo-card::before{
+  content:"";
+  position:absolute;
+  top:-11px;
+  left:50%;
+  transform:translateX(-50%);
+  width:48px;
+  height:18px;
+  background:rgba(245,228,160,.42);
+  border-radius:2px;
+  box-shadow:0 1px 4px rgba(0,0,0,.3);
+  z-index:2;
+}
+.act-photo-card:hover{
+  transform:rotate(0deg) scale(1.12);
+  box-shadow:6px 12px 32px rgba(0,0,0,.85);
+  z-index:20;
+}
+.act-photo-card{cursor:pointer;}
+.act-photo-card img{
+  display:block;
+  height:150px;
+  width:auto;
+  max-width:none;
+}
+.act-photo-name{
+  display:block;
+  text-align:center;
+  padding:5px 2px 0;
+  color:#ddd;
+  font-family:"Special Elite",monospace;
+  font-size:9px;
+  letter-spacing:.08em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:100%;
+}
+/* カードごとの傾き */
+.act-photo-card:nth-child(1){--r:-3deg}
+.act-photo-card:nth-child(2){--r:2deg}
+.act-photo-card:nth-child(3){--r:-1.5deg}
+.act-photo-card:nth-child(4){--r:3.5deg}
+.act-photo-card:nth-child(5){--r:-2.5deg}
+.act-photo-card:nth-child(6){--r:1deg}
+.act-photo-card:nth-child(7){--r:-3.5deg}
+.act-photo-card:nth-child(8){--r:2.5deg}
+@media(max-width:600px){
+  .act-photos{gap:16px 10px;}
+  .act-photo-card img{height:100px;}
+}
+
+/* === ACT PHOTO LIGHTBOX === */
+#act-lb{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.93);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+#act-lb.open{display:flex;}
+#act-lb img{
+  max-width:90vw;
+  max-height:90vh;
+  object-fit:contain;
+  box-shadow:0 8px 48px rgba(0,0,0,.9);
+  cursor:default;
+}
+#act-lb-close{
+  position:absolute;
+  top:20px;right:24px;
+  background:none;border:none;
+  color:#fff;font-size:32px;
+  cursor:pointer;opacity:.6;
+  line-height:1;
+}
+#act-lb-close:hover{opacity:1;}
+
 /* EVENTページ詳細テキスト */
 .history-item-detail{
   font-family:"Noto Sans JP","BIZ UDPGothic",sans-serif;

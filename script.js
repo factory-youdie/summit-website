@@ -650,3 +650,45 @@
     if(e.key==='ArrowRight') { cur=(cur+1)%cells.length; show(); }
   });
 })();
+
+/* =========================================================
+   ACT PHOTOS — ライトボックス（index.html / event.html）
+   ========================================================= */
+(function(){
+  const cards = document.querySelectorAll('.act-photo-card');
+  if(!cards.length) return;
+
+  /* オーバーレイを動的生成 */
+  const overlay = document.createElement('div');
+  overlay.id = 'act-lb';
+  overlay.innerHTML = '<img id="act-lb-img" src="" alt=""><button id="act-lb-close" aria-label="閉じる">✕</button>';
+  document.body.appendChild(overlay);
+
+  const lbImg   = document.getElementById('act-lb-img');
+  const lbClose = document.getElementById('act-lb-close');
+
+  function open(src, alt){
+    lbImg.src = src;
+    lbImg.alt = alt;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      open(img.src, img.alt);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  overlay.addEventListener('click', e => { if(e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if(!overlay.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+  });
+})();
