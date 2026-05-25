@@ -808,9 +808,10 @@ ul{list-style:none}
 .act-photo-card{cursor:pointer;}
 .act-photo-card img{
   display:block;
-  height:150px;
-  width:auto;
-  max-width:none;
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  background:#111;
 }
 .act-photo-name{
   display:block;
@@ -823,7 +824,7 @@ ul{list-style:none}
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  max-width:100%;
+  max-width:110px;
 }
 /* カードごとの傾き */
 .act-photo-card:nth-child(1){--r:-3deg}
@@ -836,7 +837,8 @@ ul{list-style:none}
 .act-photo-card:nth-child(8){--r:2.5deg}
 @media(max-width:600px){
   .act-photos{gap:16px 10px;}
-  .act-photo-card img{height:100px;}
+  .act-photo-card img{width:80px;height:80px;}
+  .act-photo-name{max-width:80px;}
 }
 
 /* === ACT PHOTO LIGHTBOX === */
