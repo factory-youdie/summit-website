@@ -1363,14 +1363,25 @@ ul{list-style:none}
   filter:drop-shadow(2px 2px 0 rgba(0,0,0,.6));
 }
 .footer-copy{font-size:11px;letter-spacing:.05em;color:#888}
-.footer-sns{display:flex;flex-wrap:wrap;gap:16px 24px}
+.footer-sns{display:flex;flex-wrap:wrap;gap:16px 20px;align-items:center}
 .footer-sns a{
   font-family:"Faster One",sans-serif;letter-spacing:.12em;
   font-size:13px;
   color:#bba;transition:color .25s;
+  display:inline-flex;align-items:center;
 }
-.footer-sns a:hover{color:var(--red)}
-.footer-sns a:last-child{flex-basis:100%;margin-top:4px;}
+.footer-sns a i{font-size:24px;line-height:1;}
+.footer-sns a:hover{opacity:.75}
+.footer-sns a[aria-label="Instagram"] i{
+  background:linear-gradient(45deg,#833AB4,#C13584,#E1306C,#FD1D1D,#F56040,#FCAF45);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.footer-sns a[aria-label="X (Twitter)"] i{color:#ffffff;}
+.footer-sns a[aria-label="TikTok"] i{color:#ffffff;}
+.footer-sns a[aria-label="YouTube"] i{color:#FF0000;}
+.footer-sns a[aria-label="Facebook"] i{color:#0866FF;}
+.footer-sns a[aria-label="Shop"] i{color:#FF6600;}
 @media(max-width:600px){
   .footer-inner{flex-direction:column;align-items:center;text-align:center;}
   .footer-brand{align-items:center;}
