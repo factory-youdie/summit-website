@@ -1701,11 +1701,13 @@ ul{list-style:none}
 }
 .sc-photo{
   position:absolute;
-  cursor:zoom-in;
+  cursor:pointer;
   line-height:0;
   z-index:2;
   transition:transform .2s ease, filter .2s ease, z-index 0s;
   filter:drop-shadow(4px 6px 20px rgba(0,0,0,.85));
+  text-decoration:none;
+  color:inherit;
 }
 .sc-photo:hover{
   filter:drop-shadow(5px 8px 24px rgba(0,0,0,.95)) brightness(1.08);
