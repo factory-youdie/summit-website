@@ -593,6 +593,20 @@
     }
   })();
 
+  /* ---------- 汎用ライトボックストリガー（a.js-lb） ----------
+     使い方: <a class="js-lb" href="フルサイズ画像URL"><img ...></a>
+     クリックで×ボタン付きライトボックスが開く。新規タブ遷移しない。
+     今後、拡大表示が必要な画像には必ずこのクラスを使うこと。
+  ---------------------------------------------------------------- */
+  document.querySelectorAll('a.js-lb').forEach(a => {
+    a.style.cursor = 'zoom-in';
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const img = a.querySelector('img');
+      openLightbox(a.getAttribute('href'), img ? img.alt : '');
+    });
+  });
+
   /* ---------- 開発者向けロゴクリックでイースターエッグ ---------- */
   const star = document.querySelector('.logo-star');
   if (star) {
