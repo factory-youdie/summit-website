@@ -767,6 +767,12 @@ ul{list-style:none}
   border:none;
   display:block;
 }
+.news-tiktok{
+  width:325px;
+  height:580px;
+  border:none;
+  display:block;
+}
 
 /* イベントビジュアル（EVENT内） */
 .event-visual-wrap{margin-bottom:16px;}
