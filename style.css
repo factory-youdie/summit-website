@@ -761,6 +761,12 @@ ul{list-style:none}
 .news-event-visual img{
   width:100%;max-width:300px;display:block;
 }
+.news-yt-shorts{
+  width:200px;
+  aspect-ratio:9/16;
+  border:none;
+  display:block;
+}
 
 /* イベントビジュアル（EVENT内） */
 .event-visual-wrap{margin-bottom:16px;}
