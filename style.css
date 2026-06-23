@@ -773,6 +773,11 @@ ul{list-style:none}
   border:none;
   display:block;
 }
+.tiktok-embed{
+  max-width:325px;
+  min-width:280px;
+  margin:0;
+}
 
 /* イベントビジュアル（EVENT内） */
 .event-visual-wrap{margin-bottom:16px;}
