@@ -736,9 +736,12 @@ ul{list-style:none}
   font-size:14px;letter-spacing:.04em;
   color:var(--white);
   line-height:1.5;
+  min-width:0;
+  overflow-wrap:anywhere;
 }
 .news-event-link{
   display:inline-block;
+  max-width:100%;
   color:var(--red);
   font-family:"Special Elite","Rubik Mono One",monospace;
   font-size:13px;letter-spacing:.1em;
@@ -747,6 +750,7 @@ ul{list-style:none}
   border:1px solid var(--red);
   padding:1px 7px;
   border-radius:2px;
+  word-break:break-all;
   transition:background .2s,color .2s;
 }
 .news-event-link:hover{
